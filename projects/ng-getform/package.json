@@ -1,0 +1,28 @@
+{
+  "name": "ng-getform",
+  "version": "0.0.3",
+  "files": [
+    "lib/*"
+  ],
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/Halo-Lab/angular-getform.git",
+    "type": "git"
+  },
+  "type": "module",
+  "keywords": [
+    "Angular",
+    "getform.io",
+    "integration",
+    "form"
+  ],
+  "description": "Angular custom form integration with the getform.io service",
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
