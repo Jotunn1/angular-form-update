@@ -1,6 +1,18 @@
-<lib-ng-getform
+<!-- <lib-ng-getform
   [targetUrl]="'https://getform.io/f/2e35bc65-69db-4c12-b041-f05a95a8d53e'"
   [fields]="fieldList"
   [btnLabel]="'Send form data'"
   [successCallback]="callback"
-></lib-ng-getform>
+></lib-ng-getform> -->
+
+<lib-select
+  [label]="'Choose your favourite fruit'"
+  [options]="fruitsArr"
+  (selectionChange)="setStateFromSelect($event)"
+></lib-select>
+favouriteFruit : {{ favouriteFruit }}
+<lib-checkbox
+  *ngFor="let checkbox of testArr"
+  [label]="checkbox.label"
+  [(ngModel)]="checkbox.state"
+></lib-checkbox>

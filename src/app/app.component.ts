@@ -9,6 +9,20 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
+  testArr = [{ label: 'checkbox 1', state: false },
+  { label: 'checkbox 2', state: true },
+  { label: 'checkbox 3', state: false }];
+  fruitsArr: string[] = ['Banana',
+    'Mango',
+    'Pear',
+    'Apple',
+    'Orange'
+  ];
+
+  favouriteFruit: string = '';
+  setStateFromSelect(event: string) {
+    this.favouriteFruit = event
+  }
 
   fieldList = [
     {

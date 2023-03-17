@@ -12,3 +12,9 @@ export type TField = {
   label?: string;
   validations?: TValidationItem[];
 };
+
+
+export type RadioButtonItem = {
+  name: string;
+  value: string;
+}
