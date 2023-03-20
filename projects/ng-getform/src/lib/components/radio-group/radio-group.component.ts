@@ -19,6 +19,7 @@ const RADIO_VALUE_ACCESSOR: any = {
   providers: [RADIO_VALUE_ACCESSOR],
 })
 export class RadioGroupComponent implements ControlValueAccessor {
+  @Input() name: string = '';
   @Input() control: FormControl = new FormControl(undefined);
   @Input() items!: any[];
   @Input() question?: string;
@@ -29,7 +30,7 @@ export class RadioGroupComponent implements ControlValueAccessor {
     }
   }
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.innerValue = this.control.value;

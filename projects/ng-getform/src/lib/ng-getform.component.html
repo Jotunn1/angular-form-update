@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-<!-- <form (ngSubmit)="onSubmit()" [formGroup]="form">А
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
   <div *ngFor="let item of fields">
     <lib-input
       *ngIf="item.type === 'text'"
@@ -13,31 +13,28 @@
       [control]="form.controls[item.name]"
       [errorMessages]="errorMessages[item.name]"
     ></lib-input>
-    <ng-container *ngIf="item.type === 'checkbox'">
-      <lib-checkbox
-        [label]="item.label"
-        [control]="item.checkboxState"
-      ></lib-checkbox>
-      <p>{{ item.checkboxState.value }}</p>
-    </ng-container>
-    <ng-container *ngIf="item.type === 'radio'">
-      <lib-radio-group
-        [question]="item.question"
-        [items]="item.options"
-        [control]="item.state"
-      ></lib-radio-group>
-      {{ item.state.value }}
-    </ng-container>
-    <ng-container *ngIf="item.type === 'select'">
-      <lib-select
-        [question]="item.question"
-        [options]="item.options"
-        [control]="item.selectState"
-      ></lib-select>
-      {{ item.selectState.value }}
-    </ng-container>
+    <lib-checkbox
+      *ngIf="item.type === 'checkbox'"
+      [name]="item.name"
+      [label]="item.label"
+      [control]="form.controls[item.name]"
+    >
+    </lib-checkbox>
+    <lib-radio-group
+      *ngIf="item.type === 'radio'"
+      [question]="item.question"
+      [items]="item.options"
+      [name]="item.name"
+      [control]="form.controls[item.name]"
+    ></lib-radio-group>
+    <lib-select
+      *ngIf="item.type === 'select'"
+      [question]="item.question"
+      [options]="item.options"
+      [control]="form.controls[item.name]"
+    ></lib-select>
   </div>
   <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
-</form> -->
-<lib-file-input></lib-file-input>
+</form>
+<!-- <lib-file-input></lib-file-input> -->
 <!-- </div> -->

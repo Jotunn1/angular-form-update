@@ -96,6 +96,7 @@ export class NgGetformComponent {
   constructor() { }
 
   onSubmit() {
+    console.log(this.form)
     this.isFormSubmitted = true;
 
     if (this.form.invalid) return;

@@ -82,6 +82,7 @@ export class AppComponent {
     {
       type: 'radio',
       question: 'Choose one option',
+      name: 'radio',
       options: [{ name: 'radio 1', value: 'radio 1' },
       { name: 'radio 2', value: 'radio 2' },
       { name: 'radio 3', value: 'radio 3' },
@@ -91,11 +92,13 @@ export class AppComponent {
     {
       type: 'checkbox',
       label: 'Confirmation',
+      name: 'confirmation',
       checkboxState: new FormControl(true)
     },
     {
       type: 'select',
       question: 'Choose your favourite fruit',
+      name: 'fruit',
       options: ['Banana',
         'Mango',
         'Pear',

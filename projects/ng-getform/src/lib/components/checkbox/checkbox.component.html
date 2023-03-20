@@ -4,6 +4,7 @@
     [id]="id"
     [ngModel]="isChecked"
     (ngModelChange)="onModelChange($event)"
+    [name]="name"
   />
   <div *ngIf="isChecked" class="filling">
     <svg

@@ -6,6 +6,7 @@
     <label [ngClass]="item.value === innerValue ? 'active' : ''">
       <input
         type="radio"
+        [name]="name"
         [value]="item.value"
         (ngModelChange)="change($event)"
         [formControl]="control"
