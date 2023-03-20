@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,30 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
-  testArr = [{ label: 'checkbox 1', state: false },
-  { label: 'checkbox 2', state: true },
-  { label: 'checkbox 3', state: false }];
+  testArr = [{ label: 'checkbox 1', state: new FormControl(true) },
+  { label: 'checkbox 2', state: new FormControl(false) },
+  { label: 'checkbox 3', state: new FormControl(true) }];
+
+  checkboxLabel1 = 'checkbox 1';
+  checkboxState1 = new FormControl(true);
+  checkboxLabel2 = 'checkbox 2';
+  checkboxState2 = new FormControl(false);
+  checkboxLabel3 = 'checkbox 3';
+  checkboxState3 = new FormControl(true);
+
   fruitsArr: string[] = ['Banana',
     'Mango',
     'Pear',
     'Apple',
     'Orange'
   ];
+
+  selectedItem: FormControl = new FormControl();
+  testArrRadio: any = [{ name: 'radio 1', value: 'radio 1' },
+  { name: 'radio 2', value: 'radio 2' },
+  { name: 'radio 3', value: 'radio 3' },
+  { name: 'radio 4', value: 'radio 4 ' },]
+
 
   favouriteFruit: string = '';
   setStateFromSelect(event: string) {
@@ -70,62 +86,92 @@ export class AppComponent {
       ],
     },
     {
-      type: 'email',
-      name: 'email',
-      label: 'Your email address',
-      placeholder: 'Email address',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-        {
-          type: 'email',
-          value: true,
-          errorMessage: 'Invalid value',
-        },
-      ],
+      type: 'radio',
+      question: 'Choose one option',
+      options: [{ name: 'radio 1', value: 'radio 1' },
+      { name: 'radio 2', value: 'radio 2' },
+      { name: 'radio 3', value: 'radio 3' },
+      { name: 'radio 4', value: 'radio 4 ' },],
+      state: new FormControl('radio 3')
     },
     {
-      isMultiLine: true,
-      name: 'message',
-      label: 'Your comment',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-      ],
+      type: 'checkbox',
+      label: 'Confirmation',
+      checkboxState: new FormControl(true)
     },
     {
-      type: 'password',
-      name: 'password',
-      label: 'Your password',
-      placeholder: 'Password',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-        {
-          type: 'minLength',
-          value: 8,
-          errorMessage: 'This password too short',
-        },
-        {
-          type: 'maxLength',
-          value: 20,
-          errorMessage: 'This password too long',
-        },
+      type: 'select',
+      question: 'Choose your favourite fruit',
+      options: ['Banana',
+        'Mango',
+        'Pear',
+        'Apple',
+        'Orange'
       ],
+      changeFunction: this.changeFunc
     },
-    {
-      type: 'number',
-      name: 'age',
-      label: 'Your age',
-    },
+    // {
+    //   type: 'email',
+    //   name: 'email',
+    //   label: 'Your email address',
+    //   placeholder: 'Email address',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //     {
+    //       type: 'email',
+    //       value: true,
+    //       errorMessage: 'Invalid value',
+    //     },
+    //   ],
+    // },
+    // {
+    //   isMultiLine: true,
+    //   name: 'message',
+    //   label: 'Your comment',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'password',
+    //   name: 'password',
+    //   label: 'Your password',
+    //   placeholder: 'Password',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //     {
+    //       type: 'minLength',
+    //       value: 8,
+    //       errorMessage: 'This password too short',
+    //     },
+    //     {
+    //       type: 'maxLength',
+    //       value: 20,
+    //       errorMessage: 'This password too long',
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'number',
+    //   name: 'age',
+    //   label: 'Your age',
+    // },
   ];
+
+  changeFunc(e: string) {
+    this.favouriteFruit = e;
+    console.log(this.favouriteFruit)
+  }
 }

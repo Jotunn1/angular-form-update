@@ -1,18 +1,41 @@
-<div class="container">
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let item of fields">
-      <lib-input
-        [inputId]="item.name"
-        [placeholder]="item.placeholder ? item.placeholder : item.label"
+<!-- <div class="container"> -->
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div *ngFor="let item of fields">
+    <lib-input
+      *ngIf="item.type === 'text'"
+      [inputId]="item.name"
+      [placeholder]="item.placeholder ? item.placeholder : item.label"
+      [label]="item.label"
+      [type]="item.type || 'text'"
+      [isSubmitted]="isFormSubmitted"
+      [multiRows]="item.isMultiLine || false"
+      [isSubmitted]="isFormSubmitted"
+      [control]="form.controls[item.name]"
+      [errorMessages]="errorMessages[item.name]"
+    ></lib-input>
+    <ng-container *ngIf="item.type === 'checkbox'">
+      <lib-checkbox
         [label]="item.label"
-        [type]="item.type || 'text'"
-        [isSubmitted]="isFormSubmitted"
-        [multiRows]="item.isMultiLine || false"
-        [isSubmitted]="isFormSubmitted"
-        [control]="form.controls[item.name]"
-        [errorMessages]="errorMessages[item.name]"
-      ></lib-input>
-    </div>
-    <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
-  </form>
-</div>
+        [control]="item.checkboxState"
+      ></lib-checkbox>
+      <p>{{ item.checkboxState.value }}</p>
+    </ng-container>
+    <ng-container *ngIf="item.type === 'radio'">
+      <lib-radio-group
+        [question]="item.question"
+        [items]="item.options"
+        [control]="item.state"
+      ></lib-radio-group>
+      {{ item.state.value }}
+    </ng-container>
+
+    <lib-select
+      *ngIf="item.type === 'select'"
+      [question]="item.question"
+      [options]="item.options"
+      (selectionChange)="item.changeFunction($event)"
+    ></lib-select>
+  </div>
+  <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
+</form>
+<!-- </div> -->

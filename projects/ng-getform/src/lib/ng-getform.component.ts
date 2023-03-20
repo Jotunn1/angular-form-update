@@ -11,7 +11,7 @@ import { TField } from './types';
 })
 export class NgGetformComponent {
   @Input() targetUrl: string = '';
-  @Input() fields: TField[] = [
+  @Input() fields: any = [
     {
       type: 'text',
       name: 'name',
@@ -36,7 +36,7 @@ export class NgGetformComponent {
   errorMessages: { [key: string]: any } = {};
 
   ngOnInit() {
-    this.fields.forEach((field) => {
+    this.fields.forEach((field: any) => {
       if (field.validations)
         this.errorMessages[field.name] = {
           ...getErrorMessages(field.validations),
@@ -47,53 +47,53 @@ export class NgGetformComponent {
           null,
           !field.validations
             ? []
-            : field.validations.reduce((acc: any, current) => {
-                switch (current.type) {
-                  case 'required':
-                    return [...acc, Validators.required];
+            : field.validations.reduce((acc: any, current: { type: any; value: any; }) => {
+              switch (current.type) {
+                case 'required':
+                  return [...acc, Validators.required];
 
-                  case 'minLength':
-                    return [
-                      ...acc,
-                      Validators.minLength(Number(current.value)) || 2,
-                    ];
+                case 'minLength':
+                  return [
+                    ...acc,
+                    Validators.minLength(Number(current.value)) || 2,
+                  ];
 
-                  case 'maxLength':
-                    return [
-                      ...acc,
-                      Validators.maxLength(Number(current.value) || 10),
-                    ];
+                case 'maxLength':
+                  return [
+                    ...acc,
+                    Validators.maxLength(Number(current.value) || 10),
+                  ];
 
-                  case 'max':
-                    return [
-                      ...acc,
-                      Validators.max(Number(current.value) || 100),
-                    ];
+                case 'max':
+                  return [
+                    ...acc,
+                    Validators.max(Number(current.value) || 100),
+                  ];
 
-                  case 'min':
-                    return [...acc, Validators.min(Number(current.value) || 0)];
+                case 'min':
+                  return [...acc, Validators.min(Number(current.value) || 0)];
 
-                  case 'email':
-                    return [...acc, Validators.email];
+                case 'email':
+                  return [...acc, Validators.email];
 
-                  case 'pattern':
-                    return [
-                      ...acc,
-                      Validators.pattern(
-                        String(current.value) || '[a-zA-Z" "]+'
-                      ),
-                    ];
+                case 'pattern':
+                  return [
+                    ...acc,
+                    Validators.pattern(
+                      String(current.value) || '[a-zA-Z" "]+'
+                    ),
+                  ];
 
-                  default:
-                    return acc;
-                }
-              }, [])
+                default:
+                  return acc;
+              }
+            }, [])
         )
       );
     });
   }
 
-  constructor() {}
+  constructor() { }
 
   onSubmit() {
     this.isFormSubmitted = true;

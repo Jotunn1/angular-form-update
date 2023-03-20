@@ -1,18 +1,40 @@
-<!-- <lib-ng-getform
-  [targetUrl]="'https://getform.io/f/2e35bc65-69db-4c12-b041-f05a95a8d53e'"
-  [fields]="fieldList"
-  [btnLabel]="'Send form data'"
-  [successCallback]="callback"
-></lib-ng-getform> -->
+<div>
+  <h3>Inside ng-getform</h3>
+  <lib-ng-getform
+    [targetUrl]="'https://getform.io/f/2e35bc65-69db-4c12-b041-f05a95a8d53e'"
+    [fields]="fieldList"
+    [btnLabel]="'Send form data'"
+    [successCallback]="callback"
+  ></lib-ng-getform>
+</div>
 
-<lib-select
-  [label]="'Choose your favourite fruit'"
-  [options]="fruitsArr"
-  (selectionChange)="setStateFromSelect($event)"
-></lib-select>
-favouriteFruit : {{ favouriteFruit }}
-<lib-checkbox
-  *ngFor="let checkbox of testArr"
-  [label]="checkbox.label"
-  [(ngModel)]="checkbox.state"
-></lib-checkbox>
+<div>
+  <h3>Separate components</h3>
+  <lib-radio-group
+    [items]="testArrRadio"
+    [question]="'Choose one option'"
+    [control]="selectedItem"
+  ></lib-radio-group>
+  Radio Selected Item : {{ selectedItem.value }}
+  <lib-select
+    [question]="'Choose your favourite fruit'"
+    [options]="fruitsArr"
+    (selectionChange)="setStateFromSelect($event)"
+  ></lib-select>
+  favouriteFruit : {{ favouriteFruit }}
+  <lib-checkbox
+    [label]="checkboxLabel1"
+    [control]="checkboxState1"
+  ></lib-checkbox>
+  {{ checkboxState1.value }}
+  <lib-checkbox
+    [label]="checkboxLabel2"
+    [control]="checkboxState2"
+  ></lib-checkbox>
+  {{ checkboxState2.value }}
+  <lib-checkbox
+    [label]="checkboxLabel3"
+    [control]="checkboxState3"
+  ></lib-checkbox>
+  {{ checkboxState3.value }}
+</div>

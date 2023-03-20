@@ -1,0 +1,17 @@
+<p *ngIf="question">
+  {{ question }}
+</p>
+<ng-container *ngFor="let item of items">
+  <div class="radio-wrapper">
+    <label [ngClass]="item.value === innerValue ? 'active' : ''">
+      <input
+        type="radio"
+        [value]="item.value"
+        (ngModelChange)="change($event)"
+        [formControl]="control"
+      />
+      <div class="filling"></div>
+    </label>
+    <p>{{ item.name }}</p>
+  </div>
+</ng-container>

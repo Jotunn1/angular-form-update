@@ -8,6 +8,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { InputComponent } from './components/input/input.component';
 import { ButtonComponent } from './components/button/button.component';
 import { TooltipModule } from './components/tooltip/tooltip.module';
+import { RadioGroup } from './components/radio-group/radio-group.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { TooltipModule } from './components/tooltip/tooltip.module';
     InputComponent,
     ButtonComponent,
   ],
-  imports: [CommonModule, TooltipModule, FormsModule, ReactiveFormsModule, Checkbox, Select],
+  imports: [CommonModule, TooltipModule, FormsModule, ReactiveFormsModule, Checkbox, Select, RadioGroup],
   exports: [NgGetformComponent],
 })
 export class NgGetForm { }

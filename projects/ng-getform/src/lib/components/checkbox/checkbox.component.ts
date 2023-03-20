@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, forwardRef } from "@angular/core";
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 let integer: number = 1;
 
 @Component({
@@ -17,6 +17,7 @@ let integer: number = 1;
 
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() label?: string;
+  @Input() control?: FormControl;
   id: string = ''
 
   isChecked!: boolean;
@@ -40,10 +41,13 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     integer++
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isChecked = this.control?.value
+  }
 
   onModelChange(e: boolean) {
     this.isChecked = e;
     this.onChange(e);
+    this.control?.setValue(e)
   }
 }

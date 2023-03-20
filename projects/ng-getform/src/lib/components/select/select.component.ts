@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./select.component.scss']
 })
 export class SelectComponent implements OnInit {
-  @Input() label?: string;
+  @Input() question?: string;
   @Input() selectTitle?: string;
   @Input() options: string[] = [];
   @Output() selectionChange = new EventEmitter<string>();

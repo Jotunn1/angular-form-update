@@ -1,7 +1,16 @@
 :host {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    justify-content: center;
+    gap: 50px;
+    justify-content: space-around;
     align-items: center;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        >h3 {
+            font-size: 40px;
+        }
+    }
 }
