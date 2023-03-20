@@ -10,7 +10,7 @@ export class SelectComponent implements OnInit {
   @Input() question?: string;
   @Input() selectTitle?: string;
   @Input() options: string[] = [];
-  @Output() selectionChange = new EventEmitter<string>();
+  @Input() control?: FormControl;
   isActive: boolean = false;
   searchString = new FormControl('');
   filteredOptions: string[] = []
@@ -22,7 +22,7 @@ export class SelectComponent implements OnInit {
 
   changeValue(value: any) {
     this.selectTitle = value;
-    this.selectionChange.emit(value);
+    this.control?.setValue(value)
   }
 
   toggleDropdown() {

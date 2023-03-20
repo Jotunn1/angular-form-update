@@ -19,9 +19,9 @@
   <lib-select
     [question]="'Choose your favourite fruit'"
     [options]="fruitsArr"
-    (selectionChange)="setStateFromSelect($event)"
+    [control]="favouriteFruit"
   ></lib-select>
-  favouriteFruit : {{ favouriteFruit }}
+  favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
     [label]="checkboxLabel1"
     [control]="checkboxState1"

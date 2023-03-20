@@ -28,13 +28,14 @@
       ></lib-radio-group>
       {{ item.state.value }}
     </ng-container>
-
-    <lib-select
-      *ngIf="item.type === 'select'"
-      [question]="item.question"
-      [options]="item.options"
-      (selectionChange)="item.changeFunction($event)"
-    ></lib-select>
+    <ng-container *ngIf="item.type === 'select'">
+      <lib-select
+        [question]="item.question"
+        [options]="item.options"
+        [control]="item.selectState"
+      ></lib-select>
+      {{ item.selectState.value }}
+    </ng-container>
   </div>
   <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
 </form>

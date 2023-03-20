@@ -10,9 +10,6 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
-  testArr = [{ label: 'checkbox 1', state: new FormControl(true) },
-  { label: 'checkbox 2', state: new FormControl(false) },
-  { label: 'checkbox 3', state: new FormControl(true) }];
 
   checkboxLabel1 = 'checkbox 1';
   checkboxState1 = new FormControl(true);
@@ -27,6 +24,7 @@ export class AppComponent {
     'Apple',
     'Orange'
   ];
+  favouriteFruit: FormControl = new FormControl();
 
   selectedItem: FormControl = new FormControl();
   testArrRadio: any = [{ name: 'radio 1', value: 'radio 1' },
@@ -35,10 +33,6 @@ export class AppComponent {
   { name: 'radio 4', value: 'radio 4 ' },]
 
 
-  favouriteFruit: string = '';
-  setStateFromSelect(event: string) {
-    this.favouriteFruit = event
-  }
 
   fieldList = [
     {
@@ -106,9 +100,11 @@ export class AppComponent {
         'Mango',
         'Pear',
         'Apple',
-        'Orange'
+        'Orange',
+        'Lemon',
+        'Watermelon'
       ],
-      changeFunction: this.changeFunc
+      selectState: new FormControl()
     },
     // {
     //   type: 'email',
@@ -169,9 +165,4 @@ export class AppComponent {
     //   label: 'Your age',
     // },
   ];
-
-  changeFunc(e: string) {
-    this.favouriteFruit = e;
-    console.log(this.favouriteFruit)
-  }
 }
