@@ -20,9 +20,12 @@ const RADIO_VALUE_ACCESSOR: any = {
 })
 export class RadioGroupComponent implements ControlValueAccessor {
   @Input() name: string = '';
-  @Input() control: FormControl = new FormControl(undefined);
+  @Input() control: FormControl = new FormControl();
   @Input() items!: any[];
   @Input() question?: string;
+  @Input() isSubmitted: boolean = false;
+  @Input() errorMessages: any;
+  
   innerValue!: string | number | boolean;
   writeValue(value: string | number | boolean) {
     if (value !== this.innerValue) {

@@ -10,7 +10,9 @@ export class SelectComponent implements OnInit {
   @Input() question?: string;
   @Input() selectTitle?: string;
   @Input() options: string[] = [];
-  @Input() control?: FormControl;
+  @Input() control: FormControl =new FormControl();
+  @Input() isSubmitted: boolean = false;
+  @Input() errorMessages: any;
   isActive: boolean = false;
   searchString = new FormControl('');
   filteredOptions: string[] = []

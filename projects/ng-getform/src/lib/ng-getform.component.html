@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-<!-- <form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
   <div *ngFor="let item of fields">
     <lib-input
       *ngIf="item.type === 'text'"
@@ -18,6 +18,8 @@
       [name]="item.name"
       [label]="item.label"
       [control]="form.controls[item.name]"
+      [isSubmitted]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
     >
     </lib-checkbox>
     <lib-radio-group
@@ -26,15 +28,24 @@
       [items]="item.options"
       [name]="item.name"
       [control]="form.controls[item.name]"
+      [isSubmitted]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
     ></lib-radio-group>
     <lib-select
       *ngIf="item.type === 'select'"
       [question]="item.question"
       [options]="item.options"
       [control]="form.controls[item.name]"
+      [isSubmitted]="isFormSubmitted"
+      [errorMessages]="errorMessages[item.name]"
     ></lib-select>
+    <!-- <lib-file-input
+      *ngIf="item.type === 'file'"
+      [isMultipleFiles]="true"
+      [control]="form.controls[item.name]"
+      [name]="item.name"
+    ></lib-file-input> -->
   </div>
   <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
-</form> -->
-<lib-file-input [isMultipleFiles]="true"></lib-file-input>
+</form>
 <!-- </div> -->

@@ -8,17 +8,21 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./file-input.component.scss']
 })
 export class FileInputComponent {
+  @Input() name: string = '';
+  @Input() control: FormControl = new FormControl();
   @Input() isMultipleFiles: boolean = false;
   supportedFormats: string[] = ['JPEG', 'PNG', 'GIF', 'PDF', 'Word'];
   importFile: FormControl = new FormControl('')
   fileName: string = '';
+  files: File[] = []
 
   constructor(private http: HttpClient) {
 
   }
   onFileChange(e: any) {
+    this.files = Object.keys(e.target.files).map((key: any) => e.target.files[key])
     // const file = e.files[0];
-    console.log(e);
+    console.log(this.files, 'files');
     // if (file) {
     //   this.fileName = file.name;
     //   const reader = new FileReader();
@@ -32,6 +36,9 @@ export class FileInputComponent {
     // const upload$ = this.http.post('/api/uploads', formData);
     // upload$.subscribe();
     // }
+  }
+  onFileDroped(e: any) {
+    console.log(e)
   }
 
   labelClickHandler(e: Event) {

@@ -5,10 +5,10 @@
 }
 
 :host {
-    min-width: 250px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    position: relative;
 
     * {
         font-family: 'MacPaw Fixel';
@@ -138,9 +138,21 @@
             }
         }
 
-        &.hide>* {
+        &.hide:not(.error)>* {
             pointer-events: none;
             user-select: none;
         }
+
+        &.error {
+            border-color: #f27c74;
+        }
+    }
+
+    .unvalid {
+        display: flex;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }

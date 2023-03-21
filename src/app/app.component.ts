@@ -91,7 +91,7 @@ export class AppComponent {
         {
           type: 'required',
           value: true,
-          errorMessage: 'Required field',
+          errorMessage: 'Selection required',
         },
       ],
     },
@@ -104,10 +104,14 @@ export class AppComponent {
         {
           type: 'required',
           value: true,
-          errorMessage: 'Required field',
+          errorMessage: 'Confirmation required',
         },
       ],
     },
+    // {
+    //   type: 'file',
+    //   name: 'avatar'
+    // },
     {
       type: 'select',
       question: 'Choose your favourite fruit',
@@ -119,6 +123,13 @@ export class AppComponent {
         'Orange',
         'Lemon',
         'Watermelon'
+      ],
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Selection required',
+        },
       ],
     },
     // {

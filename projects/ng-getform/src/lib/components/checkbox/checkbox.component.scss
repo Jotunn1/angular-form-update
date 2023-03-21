@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
 
     >label {
         position: relative;
@@ -42,6 +43,10 @@
             display: grid;
             place-content: center;
         }
+
+        &.error {
+            border-color: #f27c74;
+        }
     }
 
     >p {
@@ -52,5 +57,13 @@
         line-height: 150%;
         color: #060811;
         margin: 0;
+    }
+
+    .unvalid {
+        display: flex;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }

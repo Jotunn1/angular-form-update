@@ -1,8 +1,8 @@
 <label
-  for="fileUpload"
+  [htmlFor]="name"
   (click)="labelClickHandler($event)"
   fileDragDrop
-  (filesChangeEmiter)="onFileChange($event)"
+  (filesChangeEmiter)="onFileDroped($event)"
 >
   <svg
     width="60"
@@ -41,8 +41,9 @@
   <input
     #fileUpload
     type="file"
-    id="fileUpload"
-    (change)="onFileChange($event.target)"
+    [id]="name"
+    (change)="onFileChange($event)"
+    [formControl]="control"
     accept="image/*, .doc,.docx"
     [multiple]="isMultipleFiles"
   />

@@ -18,7 +18,9 @@ let integer: number = 1;
 export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() name: string = '';
   @Input() label?: string;
-  @Input() control?: FormControl;
+  @Input() control: FormControl = new FormControl();
+  @Input() isSubmitted: boolean = false;
+  @Input() errorMessages: any;
   id: string = ''
 
   isChecked!: boolean;
