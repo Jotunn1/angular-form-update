@@ -43,7 +43,8 @@
     type="file"
     id="fileUpload"
     (change)="onFileChange($event.target)"
-    accept="images/*, .doc,.docx"
+    accept="image/*, .doc,.docx"
+    [multiple]="isMultipleFiles"
   />
 </label>
 
