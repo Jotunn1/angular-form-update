@@ -1,4 +1,9 @@
-<label for="fileUpload" (click)="labelClickHandler($event)">
+<label
+  for="fileUpload"
+  (click)="labelClickHandler($event)"
+  fileDragDrop
+  (filesChangeEmiter)="onFileChange($event)"
+>
   <svg
     width="60"
     height="52"
@@ -29,7 +34,7 @@
   </svg>
   <div class="text">
     <h6>Drop Files here</h6>
-    <p>Supported formates: JPEG, PNG, GIF, PDF, Word</p>
+    <p>Supported formates: {{ supportedFormats.join(", ") }}</p>
   </div>
 
   <button (click)="fileUpload.click()">Choose Files</button>
@@ -38,6 +43,7 @@
     type="file"
     id="fileUpload"
     (change)="onFileChange($event.target)"
+    accept="images/*, .doc,.docx"
   />
 </label>
 

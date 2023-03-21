@@ -87,13 +87,26 @@ export class AppComponent {
       { name: 'radio 2', value: 'radio 2' },
       { name: 'radio 3', value: 'radio 3' },
       { name: 'radio 4', value: 'radio 4 ' },],
-      state: new FormControl('radio 3')
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Required field',
+        },
+      ],
     },
+
     {
       type: 'checkbox',
       label: 'Confirmation',
       name: 'confirmation',
-      checkboxState: new FormControl(true)
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Required field',
+        },
+      ],
     },
     {
       type: 'select',
@@ -107,7 +120,6 @@ export class AppComponent {
         'Lemon',
         'Watermelon'
       ],
-      selectState: new FormControl()
     },
     // {
     //   type: 'email',
