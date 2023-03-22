@@ -5,8 +5,8 @@
 }
 
 .tooltip {
-  width: 100%;
-  max-width: 340px;
+  width: fit-content;
+  max-width: 250px;
   padding: 12px;
   position: fixed;
   border-radius: 4px;

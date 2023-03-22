@@ -53,7 +53,12 @@
     </svg>
   </div>
   <div class="dropdown">
-    <label class="search" for="search" (click)="searchClickHandle($event)">
+    <label
+      *ngIf="searchEnabled"
+      class="search"
+      for="search"
+      (click)="searchClickHandle($event)"
+    >
       <input
         type="text"
         id="search"
