@@ -36,8 +36,11 @@
     <h6>Drop Files here</h6>
     <p>Supported formates: {{ supportedFormats.join(", ") }}</p>
   </div>
-
-  <button (click)="fileUpload.click()">Choose Files</button>
+  <lib-button
+    [btnLabel]="'Choose Files'"
+    [btnType]="'stroke'"
+    (click)="fileUpload.click()"
+  ></lib-button>
   <input
     #fileUpload
     type="file"

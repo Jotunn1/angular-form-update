@@ -57,44 +57,44 @@ export class AppComponent {
         },
       ],
     },
-    {
-      type: 'text',
-      name: 'lastName',
-      label: 'Your last name',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-        {
-          type: 'minLength',
-          value: 2,
-          errorMessage: 'At least 2 characters',
-        },
-        {
-          type: 'pattern',
-          value: '[a-zA-Z]+',
-          errorMessage: 'Only letters',
-        },
-      ],
-    },
-    {
-      type: 'radio',
-      question: 'Choose one option',
-      name: 'radio',
-      options: [{ name: 'radio 1', value: 'radio 1' },
-      { name: 'radio 2', value: 'radio 2' },
-      { name: 'radio 3', value: 'radio 3' },
-      { name: 'radio 4', value: 'radio 4 ' },],
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Selection required',
-        },
-      ],
-    },
+    // {
+    //   type: 'text',
+    //   name: 'lastName',
+    //   label: 'Your last name',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //     {
+    //       type: 'minLength',
+    //       value: 2,
+    //       errorMessage: 'At least 2 characters',
+    //     },
+    //     {
+    //       type: 'pattern',
+    //       value: '[a-zA-Z]+',
+    //       errorMessage: 'Only letters',
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'radio',
+    //   question: 'Choose one option',
+    //   name: 'radio',
+    //   options: [{ name: 'radio 1', value: 'radio 1' },
+    //   { name: 'radio 2', value: 'radio 2' },
+    //   { name: 'radio 3', value: 'radio 3' },
+    //   { name: 'radio 4', value: 'radio 4 ' },],
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Selection required',
+    //     },
+    //   ],
+    // },
 
     {
       type: 'checkbox',
@@ -108,30 +108,30 @@ export class AppComponent {
         },
       ],
     },
-    // {
-    //   type: 'file',
-    //   name: 'avatar'
-    // },
     {
-      type: 'select',
-      question: 'Choose your favourite fruit',
-      name: 'fruit',
-      options: ['Banana',
-        'Mango',
-        'Pear',
-        'Apple',
-        'Orange',
-        'Lemon',
-        'Watermelon'
-      ],
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Selection required',
-        },
-      ],
+      type: 'file',
+      name: 'avatar'
     },
+    // {
+    //   type: 'select',
+    //   question: 'Choose your favourite fruit',
+    //   name: 'fruit',
+    //   options: ['Banana',
+    //     'Mango',
+    //     'Pear',
+    //     'Apple',
+    //     'Orange',
+    //     'Lemon',
+    //     'Watermelon'
+    //   ],
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Selection required',
+    //     },
+    //   ],
+    // },
     // {
     //   type: 'email',
     //   name: 'email',

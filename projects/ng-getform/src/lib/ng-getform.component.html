@@ -39,13 +39,17 @@
       [isSubmitted]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"
     ></lib-select>
-    <!-- <lib-file-input
+    <lib-file-input
       *ngIf="item.type === 'file'"
       [isMultipleFiles]="true"
       [control]="form.controls[item.name]"
       [name]="item.name"
-    ></lib-file-input> -->
+    ></lib-file-input>
   </div>
-  <lib-button [btnLabel]="btnLabel" [disabled]="isLoading"></lib-button>
+  <lib-button
+    [btnType]="'filled wide'"
+    [btnLabel]="btnLabel"
+    [disabled]="isLoading"
+  ></lib-button>
 </form>
 <!-- </div> -->
