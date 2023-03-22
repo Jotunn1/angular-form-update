@@ -1,6 +1,6 @@
 @font-face {
-  font-family: MacPaw Fixel;
-  src: url(../../assets/fonts/MacPawFixel-Regular.otf);
+  font-family: MacPaw Fixel SemiBold;
+  src: url(../../assets/fonts/MacPawFixel-SemiBold.otf);
   font-display: swap;
 }
 
@@ -9,7 +9,7 @@ button {
   border-radius: 10px;
   border: none;
   outline: none;
-  font-family: 'MacPaw Fixel';
+  font-family: 'MacPaw Fixel SemiBold', serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
