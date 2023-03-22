@@ -6,11 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgGetformComponent } from './ng-getform.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { InputComponent } from './components/input/input.component';
-import { ButtonComponent } from './components/button/button.component';
 import { TooltipModule } from './components/tooltip/tooltip.module';
 import { RadioGroup } from './components/radio-group/radio-group.module';
-import { FileInput } from './components/file-input/file-input.module';
 import { Button } from './components/button/button.module';
+import { FileInput } from './components/file-input/file-input.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { Button } from './components/button/button.module';
     TooltipComponent,
     InputComponent,
   ],
-  imports: [CommonModule, TooltipModule, FormsModule, ReactiveFormsModule, Checkbox, Select, RadioGroup, FileInput, Button],
+  imports: [CommonModule, TooltipModule, FormsModule, ReactiveFormsModule, Checkbox, Select, RadioGroup, Button, FileInput],
   exports: [NgGetformComponent],
 })
 export class NgGetForm { }

@@ -12,7 +12,7 @@ export class FileInputComponent {
   @Input() control: FormControl = new FormControl();
   @Input() isMultipleFiles: boolean = false;
   supportedFormats: string[] = ['JPEG', 'PNG', 'GIF', 'PDF', 'Word'];
-  importFile: FormControl = new FormControl('')
+  importFile: FormControl = new FormControl()
   fileName: string = '';
   files: File[] = []
 
