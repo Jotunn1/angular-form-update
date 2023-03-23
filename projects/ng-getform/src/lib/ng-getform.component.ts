@@ -70,6 +70,8 @@ export class NgGetformComponent {
                       String(current.value) || '[a-zA-Z" "]+'
                     ),
                   ];
+                case 'requiredTrue':
+                  return [...acc, Validators.requiredTrue]
 
                 default:
                   return acc;

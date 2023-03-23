@@ -109,7 +109,7 @@ export class AppComponent {
       name: 'confirmation',
       validations: [
         {
-          type: 'required',
+          type: 'requiredTrue',
           value: true,
           errorMessage: 'Confirmation required',
         },

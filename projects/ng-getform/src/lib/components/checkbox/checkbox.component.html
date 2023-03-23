@@ -28,7 +28,7 @@
 <div
   *ngIf="isSubmitted && control?.errors"
   class="unvalid"
-  [tooltip]="control.errors?.['required'] && errorMessages?.['required']"
+  [tooltip]="errorMessages?.requiredTrue"
 >
   <svg
     width="24"
