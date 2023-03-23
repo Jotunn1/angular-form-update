@@ -24,8 +24,10 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   id: string = ''
 
   isChecked!: boolean;
-  writeValue(isChecked: boolean) {
-    this.isChecked = isChecked;
+  writeValue(value: boolean) {
+    if (value !== this.isChecked) {
+      this.isChecked = value;
+    }
   }
 
   onChange: any = () => { };
@@ -48,9 +50,8 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     this.isChecked = this.control?.value
   }
 
-  onModelChange(e: boolean) {
+  change(e: boolean) {
     this.isChecked = e;
     this.onChange(e);
-    this.control?.setValue(e)
   }
 }

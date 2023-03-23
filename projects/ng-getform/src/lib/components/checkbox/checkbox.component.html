@@ -1,10 +1,10 @@
 <label [for]="id" [ngClass]="{ error: isSubmitted && control.errors }">
   <input
     type="checkbox"
-    [id]="id"
-    [ngModel]="isChecked"
-    (ngModelChange)="onModelChange($event)"
     [name]="name"
+    [id]="id"
+    [formControl]="control"
+    (ngModelChange)="change($event)"
   />
   <div *ngIf="isChecked" class="filling">
     <svg
