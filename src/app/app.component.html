@@ -10,7 +10,11 @@
 
 <div>
   <h3>Separate components</h3>
-  <lib-file-input></lib-file-input>
+  <lib-file-input
+    [isMultipleFiles]="true"
+    [control]="filesControl"
+  ></lib-file-input>
+  <!-- {{ filesControl.value }} -->
   <!-- <lib-radio-group
     [items]="testArrRadio"
     [question]="'Choose one option'"
@@ -29,7 +33,7 @@
     [control]="checkboxState1"
   ></lib-checkbox>
   {{ checkboxState1.value }}
-  <lib-checkbox
+  <!-- <lib-checkbox
     [label]="checkboxLabel2"
     [control]="checkboxState2"
   ></lib-checkbox>
@@ -38,5 +42,5 @@
     [label]="checkboxLabel3"
     [control]="checkboxState3"
   ></lib-checkbox>
-  {{ checkboxState3.value }}
+  {{ checkboxState3.value }} -->
 </div>

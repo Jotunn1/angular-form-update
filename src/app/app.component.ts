@@ -32,7 +32,7 @@ export class AppComponent {
   { name: 'radio 3', value: 'radio 3' },
   { name: 'radio 4', value: 'radio 4 ' },]
 
-
+  filesControl: FormControl = new FormControl()
 
   fieldList = [
     {

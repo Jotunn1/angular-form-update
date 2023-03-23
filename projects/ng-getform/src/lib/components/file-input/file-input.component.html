@@ -51,5 +51,16 @@
     [multiple]="isMultipleFiles"
   />
 </label>
-
-<h2>{{ fileName }}</h2>
+<div *ngIf="files.length > 0" class="files-info">
+  <h6>Uploading : {{ currentLoadingIndex + 1 + "/" + files.length }} files</h6>
+  <ul class="files-list">
+    <lib-file-info-w-progress
+      *ngFor="let file of files; let i = index"
+      [progress]="file.progress"
+      [name]="file.name"
+      [fileIndex]="i"
+      (deleteClickEvent)="deleteFile($event)"
+    >
+    </lib-file-info-w-progress>
+  </ul>
+</div>

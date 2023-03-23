@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    >.info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        >h6 {
+            font-family: 'MacPaw Fixel';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: #4D4F54;
+        }
+
+        >button {
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+            border: none;
+            outline: none;
+            width: 24px;
+            height: 24px;
+            background-color: #F1F2F4;
+            border-radius: 100px;
+        }
+    }
+
+    >.progress {
+        height: 2px;
+        background-color: #060811;
+        border-radius: 10px;
+        transition: .3s ease-out;
+        transition-property: width, background-color;
+
+        &.uploaded {
+            background-color: #6AE877;
+        }
+    }
+}

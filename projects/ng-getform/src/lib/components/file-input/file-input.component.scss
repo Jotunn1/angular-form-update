@@ -53,4 +53,23 @@
             }
         }
     }
+
+    >.files-info {
+        margin-top: 24px;
+
+        >h6 {
+            font-family: 'MacPaw Fixel';
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 18px;
+            color: #060811;
+            margin-bottom: 22px;
+        }
+
+        >ul {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
 }

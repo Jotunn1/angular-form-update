@@ -41,7 +41,6 @@
     ></lib-select>
     <lib-file-input
       *ngIf="item.type === 'file'"
-      [isMultipleFiles]="true"
       [control]="form.controls[item.name]"
       [name]="item.name"
     ></lib-file-input>
