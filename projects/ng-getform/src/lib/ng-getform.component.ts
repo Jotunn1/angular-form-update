@@ -2,7 +2,6 @@ import { Component, HostListener, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { getErrorMessages } from './helpers';
-import { NgGetFormProps } from './types';
 
 @Component({
   selector: 'lib-ng-getform',

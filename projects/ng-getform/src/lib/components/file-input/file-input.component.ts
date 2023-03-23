@@ -30,17 +30,10 @@ export class FileInputComponent {
   }
 
   setFiles(filesList: Array<FileWProgress>) {
-    const reader = new FileReader();
-
     for (const item of filesList) {
       item.progress = 0;
       this.files.push(item);
-
-      reader.readAsDataURL(item);
-      reader.onloadend = () => this.control.setValue(reader.result)
     }
-
-    console.log(this.files, ' files')
     this.uploadFilesSimulator(this.currentLoadingIndex);
   }
 
@@ -61,10 +54,6 @@ export class FileInputComponent {
       }
     }, 200);
   }
-
-  // convertInputFormats(formatsArr: string[]) {
-  //   return formatsArr.join(', ').toLowerCase()
-  // }
 
   deleteFile(event: number) {
     this.files = this.files.filter((el: any, index: number) => {

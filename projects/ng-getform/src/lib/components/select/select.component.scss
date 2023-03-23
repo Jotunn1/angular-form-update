@@ -138,7 +138,7 @@
             }
         }
 
-        &.hide:not(.error)>* {
+        &.hide>* {
             pointer-events: none;
             user-select: none;
         }

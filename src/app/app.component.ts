@@ -58,35 +58,54 @@ export class AppComponent {
         },
       ],
     },
-    // {
-    //   type: 'text',
-    //   name: 'lastName',
-    //   label: 'Your last name',
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Required field',
-    //     },
-    //     {
-    //       type: 'minLength',
-    //       value: 2,
-    //       errorMessage: 'At least 2 characters',
-    //     },
-    //     {
-    //       type: 'pattern',
-    //       value: '[a-zA-Z]+',
-    //       errorMessage: 'Only letters',
-    //     },
-    //   ],
-    // },
+    {
+      type: 'text',
+      name: 'lastName',
+      label: 'Your last name',
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Required field',
+        },
+        {
+          type: 'minLength',
+          value: 2,
+          errorMessage: 'At least 2 characters',
+        },
+        {
+          type: 'pattern',
+          value: '[a-zA-Z]+',
+          errorMessage: 'Only letters',
+        },
+      ],
+    },
+    {
+      type: 'radio',
+      orientation: 'horizontal',
+      label: 'What is your gender?',
+      name: 'gender',
+      options: [{ name: 'male', value: 'male' },
+      { name: 'female', value: 'female' },
+      { name: 'transgender', value: 'transgender' },
+      { name: 'gender-neutral', value: 'gender neutral' },
+      { name: 'non-binary', value: 'non-binary' },
+      { name: 'pangender', value: 'pangender' },
+      { name: 'genderqueer', value: 'genderqueer' },],
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Select your gender!',
+        },
+      ],
+    },
     {
       type: 'radio',
       orientation: 'vertical',
       label: 'Choose your favourite sport',
-      name: 'radio',
+      name: 'sport',
       options: [{ name: 'soccer', value: 'soccer' },
-      { name: 'baseball', value: 'baseball' },
       { name: 'hockey', value: 'hockey' },
       { name: 'tenis', value: 'tenis' },
       { name: 'basketball', value: 'basketball' },
@@ -100,8 +119,28 @@ export class AppComponent {
       ],
     },
     {
+      type: 'select',
+      question: 'Choose your favourite fruit',
+      name: 'fruit',
+      options: ['Banana',
+        'Mango',
+        'Pear',
+        'Apple',
+        'Orange',
+        'Lemon',
+        'Watermelon'
+      ],
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Selection required',
+        },
+      ],
+    },
+    {
       type: 'file',
-      name: 'avatar'
+      name: 'file'
     },
     {
       type: 'checkbox',
@@ -115,83 +154,5 @@ export class AppComponent {
         },
       ],
     },
-    // {
-    //   type: 'select',
-    //   question: 'Choose your favourite fruit',
-    //   name: 'fruit',
-    //   options: ['Banana',
-    //     'Mango',
-    //     'Pear',
-    //     'Apple',
-    //     'Orange',
-    //     'Lemon',
-    //     'Watermelon'
-    //   ],
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Selection required',
-    //     },
-    //   ],
-    // },
-    // {
-    //   type: 'email',
-    //   name: 'email',
-    //   label: 'Your email address',
-    //   placeholder: 'Email address',
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Required field',
-    //     },
-    //     {
-    //       type: 'email',
-    //       value: true,
-    //       errorMessage: 'Invalid value',
-    //     },
-    //   ],
-    // },
-    // {
-    //   isMultiLine: true,
-    //   name: 'message',
-    //   label: 'Your comment',
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Required field',
-    //     },
-    //   ],
-    // },
-    // {
-    //   type: 'password',
-    //   name: 'password',
-    //   label: 'Your password',
-    //   placeholder: 'Password',
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Required field',
-    //     },
-    //     {
-    //       type: 'minLength',
-    //       value: 8,
-    //       errorMessage: 'This password too short',
-    //     },
-    //     {
-    //       type: 'maxLength',
-    //       value: 20,
-    //       errorMessage: 'This password too long',
-    //     },
-    //   ],
-    // },
-    // {
-    //   type: 'number',
-    //   name: 'age',
-    //   label: 'Your age',
-    // },
   ];
 }
