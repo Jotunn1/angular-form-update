@@ -7,7 +7,7 @@
 :host {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     position: relative;
 
     p {
@@ -18,56 +18,75 @@
         line-height: 150%;
         color: #060811;
         margin: 0;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
 
-    >.radio-wrapper {
+    >.radio-group {
         display: flex;
-        align-items: center;
-        gap: 12px;
+        gap: 8px;
 
-        >label {
-            cursor: pointer;
-            border: 2px solid #E1E4ED;
-            background-color: #fff;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            transition: border-color .1s ease-in;
-            position: relative;
+        &.vertical {
+            flex-direction: column;
+        }
 
-            >.filling {
-                background-color: #2F55B7;
+        &.horizontal {
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        >.radio-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            >label {
+                cursor: pointer;
+                border: 2px solid #E1E4ED;
+                background-color: #fff;
+                width: 24px;
+                height: 24px;
                 border-radius: 50%;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 14px;
-                height: 14px;
-                opacity: 0;
-                transition: opacity .1s ease;
-            }
-
-            >input {
-                width: 0;
-                height: 0;
-                visibility: hidden;
-            }
-
-            &:hover {
-                border-color: #2F55B7;
-            }
-
-            &.active {
-                border-color: #2F55B7;
+                transition: border-color .1s ease-in;
+                position: relative;
 
                 >.filling {
-                    opacity: 1;
+                    background-color: #2F55B7;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 14px;
+                    height: 14px;
+                    opacity: 0;
+                    transition: opacity .1s ease;
                 }
-            }
 
-            &.error {
-                border-color: #f27c74;
+                >input {
+                    width: 0;
+                    height: 0;
+                    visibility: hidden;
+                }
+
+                &:hover {
+                    border-color: #2F55B7;
+                }
+
+                &.active {
+                    border-color: #2F55B7;
+
+                    >.filling {
+                        opacity: 1;
+                    }
+                }
+
+                &.error {
+                    border-color: #f27c74;
+                }
             }
         }
     }

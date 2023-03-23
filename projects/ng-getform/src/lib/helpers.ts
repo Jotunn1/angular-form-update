@@ -1,4 +1,4 @@
-import { TValidationItem } from './types';
+import { TValidationItem } from "./types";
 
 export const getErrorMessages = (validations: TValidationItem[]) => {
   const res: any = {};

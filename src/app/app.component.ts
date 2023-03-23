@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+// import { NgGetFormProps } from 'ng-getform/lib/types';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,7 @@ export class AppComponent {
 
   filesControl: FormControl = new FormControl()
 
-  fieldList = [
+  fieldList: any = [
     {
       type: 'text',
       name: 'name',
@@ -79,26 +80,32 @@ export class AppComponent {
     //     },
     //   ],
     // },
-    // {
-    //   type: 'radio',
-    //   question: 'Choose one option',
-    //   name: 'radio',
-    //   options: [{ name: 'radio 1', value: 'radio 1' },
-    //   { name: 'radio 2', value: 'radio 2' },
-    //   { name: 'radio 3', value: 'radio 3' },
-    //   { name: 'radio 4', value: 'radio 4 ' },],
-    //   validations: [
-    //     {
-    //       type: 'required',
-    //       value: true,
-    //       errorMessage: 'Selection required',
-    //     },
-    //   ],
-    // },
-
+    {
+      type: 'radio',
+      orientation: 'vertical',
+      label: 'Choose your favourite sport',
+      name: 'radio',
+      options: [{ name: 'soccer', value: 'soccer' },
+      { name: 'baseball', value: 'baseball' },
+      { name: 'hockey', value: 'hockey' },
+      { name: 'tenis', value: 'tenis' },
+      { name: 'basketball', value: 'basketball' },
+      { name: 'formula-1', value: 'formula 1' }],
+      validations: [
+        {
+          type: 'required',
+          value: true,
+          errorMessage: 'Selection required',
+        },
+      ],
+    },
+    {
+      type: 'file',
+      name: 'avatar'
+    },
     {
       type: 'checkbox',
-      label: 'Confirmation',
+      label: 'Are you sure about that?',
       name: 'confirmation',
       validations: [
         {
@@ -107,10 +114,6 @@ export class AppComponent {
           errorMessage: 'Confirmation required',
         },
       ],
-    },
-    {
-      type: 'file',
-      name: 'avatar'
     },
     // {
     //   type: 'select',

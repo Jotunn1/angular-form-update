@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FileWProgress } from './types';
+import { FileWProgress } from '../../types';
 
 @Component({
   selector: 'lib-file-input',
@@ -13,7 +13,6 @@ export class FileInputComponent {
   @Input() isMultipleFiles: boolean = false;
   supportedFormats: string[] = ['JPEG', 'PNG', 'GIF', 'PDF', 'Word'];
   files: FileWProgress[] = [];
-  imagesUrl: string[] = [];
   currentLoadingIndex: number = 0;
 
   constructor() { }
@@ -37,8 +36,8 @@ export class FileInputComponent {
       item.progress = 0;
       this.files.push(item);
 
-      // reader.readAsDataURL(item);
-      // reader.onload = () => this.control.patchValue(reader.result)
+      reader.readAsDataURL(item);
+      reader.onloadend = () => this.control.setValue(reader.result)
     }
 
     console.log(this.files, ' files')

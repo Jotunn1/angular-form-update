@@ -1,8 +1,8 @@
-<p *ngIf="question">
-  {{ question }}
+<p *ngIf="label">
+  {{ label }}
 </p>
-<ng-container *ngFor="let item of items">
-  <div class="radio-wrapper">
+<div class="radio-group" [ngClass]="orientation">
+  <div *ngFor="let item of items" class="radio-wrapper">
     <label
       [ngClass]="{
         active: item.value === innerValue,
@@ -20,7 +20,7 @@
     </label>
     <p>{{ item.name }}</p>
   </div>
-</ng-container>
+</div>
 
 <div
   *ngIf="isSubmitted && control?.errors"

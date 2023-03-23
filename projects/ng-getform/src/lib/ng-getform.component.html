@@ -24,9 +24,10 @@
     </lib-checkbox>
     <lib-radio-group
       *ngIf="item.type === 'radio'"
-      [question]="item.question"
-      [items]="item.options"
       [name]="item.name"
+      [label]="item.label"
+      [items]="item.options"
+      [orientation]="item.orientation"
       [control]="form.controls[item.name]"
       [isSubmitted]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"

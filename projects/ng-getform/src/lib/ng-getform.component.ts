@@ -2,7 +2,7 @@ import { Component, HostListener, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { getErrorMessages } from './helpers';
-import { TField } from './types';
+import { NgGetFormProps } from './types';
 
 @Component({
   selector: 'lib-ng-getform',
@@ -11,20 +11,7 @@ import { TField } from './types';
 })
 export class NgGetformComponent {
   @Input() targetUrl: string = '';
-  @Input() fields: any = [
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Your name',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-      ],
-    },
-  ];
+  @Input() fields: any = [];
   @Input() btnLabel?: string = '';
   @Input() successCallback?: () => void;
 

@@ -1,10 +1,6 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-
-export interface RadioButtonItem {
-  name: string;
-  value: string;
-}
+import { RadioButtonItem } from '../../types';
 
 const RADIO_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -18,14 +14,16 @@ const RADIO_VALUE_ACCESSOR: any = {
   styleUrls: ['./radio-group.component.scss'],
   providers: [RADIO_VALUE_ACCESSOR],
 })
-export class RadioGroupComponent implements ControlValueAccessor {
+
+export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() name: string = '';
+  @Input() label?: string;
+  @Input() items!: RadioButtonItem[];
+  @Input() orientation: string = 'vertical';
   @Input() control: FormControl = new FormControl();
-  @Input() items!: any[];
-  @Input() question?: string;
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
-  
+
   innerValue!: string | number | boolean;
   writeValue(value: string | number | boolean) {
     if (value !== this.innerValue) {

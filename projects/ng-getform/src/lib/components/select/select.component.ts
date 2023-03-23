@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 export class SelectComponent implements OnInit {
   @Input() question?: string;
   @Input() selectTitle?: string;
-  @Input() searchEnabled: boolean = true;
+  @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
