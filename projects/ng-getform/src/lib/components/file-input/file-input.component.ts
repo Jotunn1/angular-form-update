@@ -1,19 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FileWProgress } from '../../types';
 
 @Component({
   selector: 'lib-file-input',
   templateUrl: './file-input.component.html',
-  styleUrls: ['./file-input.component.scss']
+  styleUrls: ['./file-input.component.scss'],
 })
 export class FileInputComponent {
+  @ViewChild('fileInput') fileInput: any;
   @Input() name: string = '';
-  @Input() control: FormControl = new FormControl();
+  @Input() control: FormControl = new FormControl(null);
   @Input() isMultipleFiles: boolean = false;
   supportedFormats: string[] = ['JPEG', 'PNG', 'GIF', 'PDF', 'Word'];
-  files: FileWProgress[] = [];
+  files: any[] = [];
   currentLoadingIndex: number = 0;
+  dataUrlsArray: any[] = []
 
   constructor() { }
 
@@ -29,12 +31,25 @@ export class FileInputComponent {
       e.preventDefault()
   }
 
-  setFiles(filesList: Array<FileWProgress>) {
-    for (const item of filesList) {
-      item.progress = 0;
-      this.files.push(item);
+  setFiles(filesList: Array<File>) {
+    console.log(filesList)
+    for (const file of filesList) {
+      this.files.push(file);
+      const reader = new FileReader();
+      reader.addEventListener('loadend', () => this.dataUrlsArray.push(reader.result));
+      reader.readAsDataURL(file);
     }
+    this.setFilesProgress()
     this.uploadFilesSimulator(this.currentLoadingIndex);
+    this.setFilesToControl()
+  }
+  setFilesProgress() {
+    this.files.forEach((el: FileWProgress) => el.progress = 0)
+  }
+
+  setFilesToControl() {
+    console.log(this.dataUrlsArray)
+    this.control.patchValue([...this.dataUrlsArray])
   }
 
   uploadFilesSimulator(index: number) {
@@ -45,7 +60,7 @@ export class FileInputComponent {
         const progressInterval = setInterval(() => {
           if (this.files[index].progress === 100) {
             clearInterval(progressInterval);
-            this.currentLoadingIndex = index;
+            this.currentLoadingIndex++
             this.uploadFilesSimulator(index + 1);
           } else {
             this.files[index].progress += 5;
