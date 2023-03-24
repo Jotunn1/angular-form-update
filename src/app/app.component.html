@@ -15,9 +15,10 @@
     [control]="filesControl"
   ></lib-file-input>
   <!-- {{ filesControl.value }} -->
-  <!-- <lib-radio-group
+  <lib-radio-group
     [items]="testArrRadio"
-    [question]="'Choose one option'"
+    [orientation]="'vertical'"
+    [label]="'Choose one option'"
     [control]="selectedItem"
   ></lib-radio-group>
   Radio Selected Item : {{ selectedItem.value }}
@@ -27,13 +28,13 @@
     [control]="favouriteFruit"
     [searchEnabled]="false"
   ></lib-select>
-  favouriteFruit : {{ favouriteFruit.value }} -->
+  favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
     [label]="checkboxLabel1"
     [control]="checkboxState1"
   ></lib-checkbox>
   {{ checkboxState1.value }}
-  <!-- <lib-checkbox
+  <lib-checkbox
     [label]="checkboxLabel2"
     [control]="checkboxState2"
   ></lib-checkbox>
@@ -42,5 +43,5 @@
     [label]="checkboxLabel3"
     [control]="checkboxState3"
   ></lib-checkbox>
-  {{ checkboxState3.value }} -->
+  {{ checkboxState3.value }}
 </div>
