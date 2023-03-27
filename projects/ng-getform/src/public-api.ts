@@ -13,6 +13,3 @@ export * from './lib/components/select/select.module';
 export * from './lib/components/checkbox/checkbox.service';
 export * from './lib/components/checkbox/checkbox.component';
 export * from './lib/components/checkbox/checkbox.module';
-export * from './lib/components/file-input/file-input.service';
-export * from './lib/components/file-input/file-input.component';
-export * from './lib/components/file-input/file-input.module';

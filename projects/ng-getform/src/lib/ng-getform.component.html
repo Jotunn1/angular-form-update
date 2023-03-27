@@ -1,4 +1,3 @@
-<!-- <div class="container"> -->
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
   <div *ngFor="let item of fields">
     <lib-input
@@ -40,11 +39,6 @@
       [isSubmitted]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"
     ></lib-select>
-    <lib-file-input
-      *ngIf="item.type === 'file'"
-      [control]="form.controls[item.name]"
-      [name]="item.name"
-    ></lib-file-input>
   </div>
   <lib-button
     [btnType]="'filled wide'"
@@ -52,4 +46,3 @@
     [disabled]="isLoading"
   ></lib-button>
 </form>
-<!-- </div> -->

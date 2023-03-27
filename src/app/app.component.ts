@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-// import { NgGetFormProps } from 'ng-getform/lib/types';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +27,10 @@ export class AppComponent {
   favouriteFruit: FormControl = new FormControl();
 
   selectedItem: FormControl = new FormControl();
-  testArrRadio: any = [{ name: 'radio 1', value: 'radio 1' },
-  { name: 'radio 2', value: 'radio 2' },
-  { name: 'radio 3', value: 'radio 3' },
-  { name: 'radio 4', value: 'radio 4 ' },]
-
-  filesControl: FormControl = new FormControl()
+  testArrRadio: any = [{ name: 'radio 1', value: 'radio-1' },
+  { name: 'radio 2', value: 'radio-2' },
+  { name: 'radio 3', value: 'radio-3' },
+  { name: 'radio 4', value: 'radio-4 ' },]
 
   fieldList: any = [
     {
@@ -109,7 +106,7 @@ export class AppComponent {
       { name: 'hockey', value: 'hockey' },
       { name: 'tenis', value: 'tenis' },
       { name: 'basketball', value: 'basketball' },
-      { name: 'formula-1', value: 'formula 1' }],
+      { name: 'formula 1', value: 'formula-1' }],
       validations: [
         {
           type: 'required',
@@ -137,10 +134,6 @@ export class AppComponent {
           errorMessage: 'Selection required',
         },
       ],
-    },
-    {
-      type: 'file',
-      name: 'file'
     },
     {
       type: 'checkbox',
