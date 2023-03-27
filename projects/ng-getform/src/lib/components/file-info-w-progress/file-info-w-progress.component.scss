@@ -15,6 +15,10 @@
             font-size: 16px;
             line-height: 150%;
             color: #4D4F54;
+            max-width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         >button {

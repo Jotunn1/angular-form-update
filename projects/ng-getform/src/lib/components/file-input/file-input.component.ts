@@ -1,5 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { FormControl, } from '@angular/forms';
 import { FileWProgress } from '../../types';
 
 @Component({
@@ -7,23 +7,34 @@ import { FileWProgress } from '../../types';
   templateUrl: './file-input.component.html',
   styleUrls: ['./file-input.component.scss'],
 })
-export class FileInputComponent {
+
+export class FileInputComponent implements OnChanges {
   @ViewChild('fileInput') fileInput: any;
   @Input() name: string = '';
   @Input() control: FormControl = new FormControl(null);
   @Input() isMultipleFiles: boolean = false;
+  @Input() resetFiles?: boolean = false;
   supportedFormats: string[] = ['JPEG', 'PNG', 'GIF', 'PDF', 'Word'];
   files: any[] = [];
   currentLoadingIndex: number = 0;
-  dataUrlsArray: any[] = []
 
   constructor() { }
 
-  onFileChange(e: any) {
-    this.setFiles(e.target.files);
+  ngOnChanges(): void {
+    if (this.resetFiles === true) {
+      this.control.setValue('')
+      this.files = []
+    }
   }
+
+  handleFileChange(e: any) {
+    this.setFilesToLocalState(e.target.files);
+    this.setFilesToControl()
+  }
+
   onFileDroped(e: any) {
-    this.setFiles(e)
+    this.setFilesToLocalState(e)
+    this.setFilesToControl()
   }
 
   labelClickHandler(e: Event) {
@@ -31,25 +42,24 @@ export class FileInputComponent {
       e.preventDefault()
   }
 
-  setFiles(filesList: Array<File>) {
-    console.log(filesList)
+  setFilesToLocalState(filesList: Array<File>) {
     for (const file of filesList) {
       this.files.push(file);
-      const reader = new FileReader();
-      reader.addEventListener('loadend', () => this.dataUrlsArray.push(reader.result));
-      reader.readAsDataURL(file);
     }
     this.setFilesProgress()
     this.uploadFilesSimulator(this.currentLoadingIndex);
-    this.setFilesToControl()
   }
+
   setFilesProgress() {
     this.files.forEach((el: FileWProgress) => el.progress = 0)
   }
 
   setFilesToControl() {
-    console.log(this.dataUrlsArray)
-    this.control.patchValue([...this.dataUrlsArray])
+    const dataTransferList = new DataTransfer();
+    this.files.forEach((file) => dataTransferList.items.add(file));
+    console.log(dataTransferList.files, 'dataTransferList');
+    console.log(this.fileInput.nativeElement.value)
+    this.control.patchValue({ ...dataTransferList.files })
   }
 
   uploadFilesSimulator(index: number) {
@@ -60,7 +70,7 @@ export class FileInputComponent {
         const progressInterval = setInterval(() => {
           if (this.files[index].progress === 100) {
             clearInterval(progressInterval);
-            this.currentLoadingIndex++
+            this.currentLoadingIndex = index;
             this.uploadFilesSimulator(index + 1);
           } else {
             this.files[index].progress += 5;
@@ -72,7 +82,10 @@ export class FileInputComponent {
 
   deleteFile(event: number) {
     this.files = this.files.filter((el: any, index: number) => {
-      if (index === event) return
+      if (index === event) {
+        this.currentLoadingIndex--
+        return
+      }
       else return el
     })
   }

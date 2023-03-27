@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" enctype="multipart/form-data">
   <div *ngFor="let item of fields">
     <lib-input
       *ngIf="item.type === 'text'"
@@ -42,8 +42,10 @@
     ></lib-select>
     <lib-file-input
       *ngIf="item.type === 'file'"
-      [control]="form.controls[item.name]"
       [name]="item.name"
+      [control]="form.controls[item.name]"
+      [isMultipleFiles]="item.isMultipleFiles"
+      [resetFiles]="isFormSubmitted"
     ></lib-file-input>
   </div>
   <lib-button

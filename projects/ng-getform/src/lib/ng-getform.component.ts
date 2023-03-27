@@ -84,6 +84,7 @@ export class NgGetformComponent {
   constructor() { }
 
   onSubmit() {
+
     this.isFormSubmitted = true;
 
     if (this.form.invalid) return;
@@ -93,7 +94,7 @@ export class NgGetformComponent {
     for (let value in this.form.value) {
       formData.append(value, this.form.value[value]);
     }
-
+    console.log(this.form)
     this.isLoading = true;
     fetch(this.targetUrl as string, {
       method: 'post',

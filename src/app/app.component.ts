@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 // import { NgGetFormProps } from 'ng-getform/lib/types';
 
 @Component({
@@ -33,53 +33,54 @@ export class AppComponent {
   { name: 'radio 3', value: 'radio 3' },
   { name: 'radio 4', value: 'radio 4 ' },]
 
-  filesControl: FormControl = new FormControl()
+  filesControl: FormControl = new FormControl(null)
+
 
   fieldList: any = [
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Your first name',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-        {
-          type: 'minLength',
-          value: 2,
-          errorMessage: 'At least 2 characters',
-        },
-        {
-          type: 'pattern',
-          value: '[a-zA-Z]+',
-          errorMessage: 'Only letters',
-        },
-      ],
-    },
-    {
-      type: 'text',
-      name: 'lastName',
-      label: 'Your last name',
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Required field',
-        },
-        {
-          type: 'minLength',
-          value: 2,
-          errorMessage: 'At least 2 characters',
-        },
-        {
-          type: 'pattern',
-          value: '[a-zA-Z]+',
-          errorMessage: 'Only letters',
-        },
-      ],
-    },
+    // {
+    //   type: 'text',
+    //   name: 'name',
+    //   label: 'Your first name',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //     {
+    //       type: 'minLength',
+    //       value: 2,
+    //       errorMessage: 'At least 2 characters',
+    //     },
+    //     {
+    //       type: 'pattern',
+    //       value: '[a-zA-Z]+',
+    //       errorMessage: 'Only letters',
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'text',
+    //   name: 'lastName',
+    //   label: 'Your last name',
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Required field',
+    //     },
+    //     {
+    //       type: 'minLength',
+    //       value: 2,
+    //       errorMessage: 'At least 2 characters',
+    //     },
+    //     {
+    //       type: 'pattern',
+    //       value: '[a-zA-Z]+',
+    //       errorMessage: 'Only letters',
+    //     },
+    //   ],
+    // },
     {
       type: 'radio',
       orientation: 'horizontal',
@@ -100,59 +101,60 @@ export class AppComponent {
         },
       ],
     },
-    {
-      type: 'radio',
-      orientation: 'vertical',
-      label: 'Choose your favourite sport',
-      name: 'sport',
-      options: [{ name: 'soccer', value: 'soccer' },
-      { name: 'hockey', value: 'hockey' },
-      { name: 'tenis', value: 'tenis' },
-      { name: 'basketball', value: 'basketball' },
-      { name: 'formula-1', value: 'formula 1' }],
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Selection required',
-        },
-      ],
-    },
-    {
-      type: 'select',
-      question: 'Choose your favourite fruit',
-      name: 'fruit',
-      options: ['Banana',
-        'Mango',
-        'Pear',
-        'Apple',
-        'Orange',
-        'Lemon',
-        'Watermelon'
-      ],
-      validations: [
-        {
-          type: 'required',
-          value: true,
-          errorMessage: 'Selection required',
-        },
-      ],
-    },
+    // {
+    //   type: 'radio',
+    //   orientation: 'vertical',
+    //   label: 'Choose your favourite sport',
+    //   name: 'sport',
+    //   options: [{ name: 'soccer', value: 'soccer' },
+    //   { name: 'hockey', value: 'hockey' },
+    //   { name: 'tenis', value: 'tenis' },
+    //   { name: 'basketball', value: 'basketball' },
+    //   { name: 'formula-1', value: 'formula 1' }],
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Selection required',
+    //     },
+    //   ],
+    // },
+    // {
+    //   type: 'select',
+    //   question: 'Choose your favourite fruit',
+    //   name: 'fruit',
+    //   options: ['Banana',
+    //     'Mango',
+    //     'Pear',
+    //     'Apple',
+    //     'Orange',
+    //     'Lemon',
+    //     'Watermelon'
+    //   ],
+    //   validations: [
+    //     {
+    //       type: 'required',
+    //       value: true,
+    //       errorMessage: 'Selection required',
+    //     },
+    //   ],
+    // },
     {
       type: 'file',
-      name: 'file'
+      name: 'file',
+      isMultipleFiles: true
     },
-    {
-      type: 'checkbox',
-      label: 'Are you sure about that?',
-      name: 'confirmation',
-      validations: [
-        {
-          type: 'requiredTrue',
-          value: true,
-          errorMessage: 'Confirmation required',
-        },
-      ],
-    },
+    // {
+    //   type: 'checkbox',
+    //   label: 'Are you sure about that?',
+    //   name: 'confirmation',
+    //   validations: [
+    //     {
+    //       type: 'requiredTrue',
+    //       value: true,
+    //       errorMessage: 'Confirmation required',
+    //     },
+    //   ],
+    // },
   ];
 }

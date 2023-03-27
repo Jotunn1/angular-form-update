@@ -1,22 +1,21 @@
 <div>
   <h3>Inside ng-getform</h3>
   <lib-ng-getform
-    [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
     [fields]="fieldList"
     [btnLabel]="'Send form data'"
     [successCallback]="callback"
+    [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
   ></lib-ng-getform>
 </div>
 
 <div>
   <h3>Separate components</h3>
+
   <lib-file-input
     [isMultipleFiles]="true"
     [control]="filesControl"
   ></lib-file-input>
-
   {{ filesControl.value }}
-  <!-- {{ filesControl.value }} -->
   <!-- <lib-radio-group
     [items]="testArrRadio"
     [question]="'Choose one option'"
@@ -30,11 +29,11 @@
     [searchEnabled]="false"
   ></lib-select>
   favouriteFruit : {{ favouriteFruit.value }} -->
-  <lib-checkbox
+  <!-- <lib-checkbox
     [label]="checkboxLabel1"
     [control]="checkboxState1"
   ></lib-checkbox>
-  {{ checkboxState1.value }}
+  {{ checkboxState1.value }} -->
   <!-- <lib-checkbox
     [label]="checkboxLabel2"
     [control]="checkboxState2"
