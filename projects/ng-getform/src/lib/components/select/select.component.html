@@ -9,7 +9,7 @@
   ]"
   (click)="toggleDropdown()"
 >
-  <p>{{ selectTitle }}</p>
+  <p *ngIf="!!selectTitle">{{ selectTitle }}</p>
   <svg
     width="12"
     height="6"

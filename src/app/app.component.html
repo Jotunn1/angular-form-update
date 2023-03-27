@@ -11,12 +11,12 @@
 <div>
   <h3>Separate components</h3>
   <lib-radio-group
-    [items]="testArrRadio"
-    [orientation]="'vertical'"
+    [items]="radioButtonsArray"
+    [orientation]="'horizontal'"
     [label]="'Choose one option'"
-    [control]="selectedItem"
+    [control]="selectedRadioItem"
   ></lib-radio-group>
-  Radio Selected Item : {{ selectedItem.value }}
+  Radio Selected Item : {{ selectedRadioItem.value }}
   <lib-select
     [question]="'Choose your favourite fruit'"
     [options]="fruitsArr"
@@ -25,10 +25,11 @@
   ></lib-select>
   favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
-    [label]="checkboxLabel1"
-    [control]="checkboxState1"
+    [name]="'confirmation'"
+    [label]="'Are you sure about that?'"
+    [control]="confirmationState"
   ></lib-checkbox>
-  {{ checkboxState1.value }}
+  {{ confirmationState.value }}
   <lib-checkbox
     [label]="checkboxLabel2"
     [control]="checkboxState2"

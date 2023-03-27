@@ -1,6 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { RadioButtonItem } from '../../types';
 
 const RADIO_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -17,15 +16,15 @@ const RADIO_VALUE_ACCESSOR: any = {
 
 export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() name: string = '';
-  @Input() label?: string;
-  @Input() items!: RadioButtonItem[];
+  @Input() label: string = '';
+  @Input() items: { name: string, value: string }[] = [];
   @Input() orientation: string = 'vertical';
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
 
-  innerValue!: string | number | boolean;
-  writeValue(value: string | number | boolean) {
+  innerValue!: string | number;
+  writeValue(value: string | number) {
     if (value !== this.innerValue) {
       this.innerValue = value;
     }
@@ -48,7 +47,7 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
     this.onTouched = fn;
   }
 
-  change(value: string | number | boolean) {
+  change(value: string | number) {
     this.innerValue = value;
     this.onChange(value);
     this.onTouched(value);

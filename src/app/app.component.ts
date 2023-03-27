@@ -11,12 +11,11 @@ export class AppComponent {
     console.log('hello from callback');
   }
 
-  checkboxLabel1 = 'checkbox 1';
-  checkboxState1 = new FormControl(true);
+  confirmationState = new FormControl(false);
   checkboxLabel2 = 'checkbox 2';
-  checkboxState2 = new FormControl(false);
+  checkboxState2 = new FormControl(true);
   checkboxLabel3 = 'checkbox 3';
-  checkboxState3 = new FormControl(true);
+  checkboxState3 = new FormControl(false);
 
   fruitsArr: string[] = ['Banana',
     'Mango',
@@ -26,11 +25,12 @@ export class AppComponent {
   ];
   favouriteFruit: FormControl = new FormControl();
 
-  selectedItem: FormControl = new FormControl();
-  testArrRadio: any = [{ name: 'radio 1', value: 'radio-1' },
-  { name: 'radio 2', value: 'radio-2' },
-  { name: 'radio 3', value: 'radio-3' },
-  { name: 'radio 4', value: 'radio-4 ' },]
+  selectedRadioItem: FormControl = new FormControl();
+  radioButtonsArray: { name: string, value: string }[] =
+    [{ name: 'radio 1', value: 'radio-1' },
+    { name: 'radio 2', value: 'radio-2' },
+    { name: 'radio 3', value: 'radio-3' },
+    { name: 'radio 4', value: 'radio-4 ' }]
 
   fieldList: any = [
     {

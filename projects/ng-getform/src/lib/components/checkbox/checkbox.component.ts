@@ -22,7 +22,6 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
   id: string = ''
-
   isChecked!: boolean;
   writeValue(value: boolean) {
     if (value !== this.isChecked) {
@@ -30,14 +29,14 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  onChange: any = () => { };
-  onTouch: any = () => { };
+  onChange: Function = () => { };
+  onTouch: Function = () => { };
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: Function): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: Function): void {
     this.onTouch = fn;
   }
 
