@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener, Input,HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { getErrorMessages } from './helpers';
@@ -14,6 +14,8 @@ export class NgGetformComponent {
   @Input() btnLabel?: string = '';
   @Input() successCallback?: () => void;
 
+  @HostBinding('attr.class') @Input() className?: string = '';
+  
   isFormSubmitted = false;
   isLoading = false;
 

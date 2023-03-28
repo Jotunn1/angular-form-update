@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Input, HostListener,HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,7 @@ export class SelectComponent implements OnInit {
   searchString = new FormControl('');
   filteredOptions: string[] = []
 
+  @HostBinding('attr.class') @Input() className?: string = '';
   @HostListener('window:click', ['$event.target'])
   closeDropdownOnMissClick(event: HTMLElement) {
     if (!event.classList.contains('select-wrapper')) this.isActive = false;

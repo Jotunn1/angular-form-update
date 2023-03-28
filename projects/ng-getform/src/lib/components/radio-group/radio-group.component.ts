@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, HostBinding, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const RADIO_VALUE_ACCESSOR: any = {
@@ -22,6 +22,8 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
+
+  @HostBinding('attr.class') @Input() className?: string = '';
 
   innerValue!: string | number;
   writeValue(value: string | number) {

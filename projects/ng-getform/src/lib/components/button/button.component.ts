@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'lib-button',
@@ -9,6 +9,8 @@ export class ButtonComponent implements OnInit {
   @Input() btnLabel?: string = 'Send form';
   @Input() btnType: string = 'filled';
   @Input() disabled?: boolean = false;
+
+  @HostBinding('attr.class') @Input() className?: string = '';
 
   constructor() { }
 
