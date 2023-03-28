@@ -2,13 +2,8 @@
   {{ label }}
 </p>
 <div class="radio-group" [ngClass]="orientation">
-  <fieldset *ngFor="let item of items" class="radio-wrapper">
-    <label
-      [ngClass]="{
-        active: item.value === innerValue,
-        error: isSubmitted && control.errors
-      }"
-    >
+  <div *ngFor="let item of items" class="radio-wrapper">
+    <label [ngClass]="{ active: item.value === innerValue }">
       <input
         type="radio"
         [name]="name"
@@ -19,7 +14,7 @@
       <div class="filling"></div>
     </label>
     <p>{{ item.name }}</p>
-  </fieldset>
+  </div>
 </div>
 
 <div
