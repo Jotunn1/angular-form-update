@@ -1,30 +1,7 @@
-<p *ngIf="!!question">
-  {{ question }}
-</p>
-<div
-  class="select-wrapper"
-  [ngClass]="[
-    isActive ? 'active' : 'hide',
-    isSubmitted && control.errors ? 'error' : ''
-  ]"
-  (click)="toggleDropdown()"
->
-  <p *ngIf="!!selectTitle">{{ selectTitle }}</p>
-  <svg
-    width="12"
-    height="6"
-    viewBox="0 0 12 6"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M1 1L6 5L11 0.999999"
-      stroke="#060811"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+<div class="select-title">
+  <p>
+    {{ question }}
+  </p>
   <div
     *ngIf="isSubmitted && control?.errors"
     class="unvalid"
@@ -52,6 +29,32 @@
       />
     </svg>
   </div>
+</div>
+
+<div
+  class="select-wrapper"
+  [ngClass]="[
+    isActive ? 'active' : 'hide',
+    isSubmitted && control.errors ? 'error' : ''
+  ]"
+  (click)="toggleDropdown()"
+>
+  <p *ngIf="!!selectTitle">{{ selectTitle }}</p>
+  <svg
+    width="12"
+    height="6"
+    viewBox="0 0 12 6"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1 1L6 5L11 0.999999"
+      stroke="#060811"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
   <div class="dropdown">
     <label
       *ngIf="searchEnabled"

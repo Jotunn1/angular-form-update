@@ -8,7 +8,12 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    position: relative;
+
+    .radio-label {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
 
     p {
         font-family: 'MacPaw Fixel';
@@ -85,13 +90,5 @@
                 }
             }
         }
-    }
-
-    .unvalid {
-        display: flex;
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
     }
 }
