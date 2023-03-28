@@ -17,30 +17,29 @@
     line-height: 140%;
     color: #060811;
 
-    &:hover {
-      &+div>input {
-        border: 1px solid transparent;
+    &+div>input {
+      border: 1px solid #d5dcda;
+      border-radius: 14px;
+      transition: border-color .15s ease-in;
 
-        &:hover {
-          border: 1px solid #d5dcda;
-
-          &.isInvalid {
-            border-color: #f27c74;
-          }
-        }
-
-        &:focus {
-          border: 1px solid #060811;
-          border-radius: 14px;
-
-          &.isInvalid {
-            border-color: #f27c74;
-          }
-        }
+      &:hover {
+        border: 1px solid #a2a6a5;
 
         &.isInvalid {
           border-color: #f27c74;
         }
+      }
+
+      &:focus {
+        border: 1px solid #060811;
+
+        &.isInvalid {
+          border-color: #f27c74;
+        }
+      }
+
+      &.isInvalid {
+        border-color: #f27c74;
       }
     }
   }
