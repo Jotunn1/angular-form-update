@@ -10,7 +10,10 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
-  inputControl: FormControl = new FormControl('')
+  inputControl: FormControl = new FormControl('');
+  testBtnCallback(e: Event) {
+    console.log(this)
+  }
 
   confirmationState = new FormControl(false);
   checkboxLabel2 = 'checkbox 2';

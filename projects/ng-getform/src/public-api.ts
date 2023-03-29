@@ -16,3 +16,6 @@ export * from './lib/components/select/select.module';
 export * from './lib/components/checkbox/checkbox.service';
 export * from './lib/components/checkbox/checkbox.component';
 export * from './lib/components/checkbox/checkbox.module';
+export * from './lib/components/button/button.service';
+export * from './lib/components/button/button.component';
+export * from './lib/components/button/button.module';
