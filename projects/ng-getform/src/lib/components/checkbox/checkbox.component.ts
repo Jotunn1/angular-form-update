@@ -49,6 +49,7 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     this.isChecked = this.control?.value;
+    console.log(this.control, 'checkbox')
   }
 
   change(e: boolean) {

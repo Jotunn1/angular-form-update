@@ -15,6 +15,7 @@
     [control]="inputControl"
     [inputId]="'test'"
     [placeholder]="'bi-bo-boop'"
+    [errorMessages]="{ required: 'Hello there' }"
   ></lib-input>
   inputControl : {{ inputControl.value }}
   <lib-radio-group
@@ -22,6 +23,7 @@
     [orientation]="'horizontal'"
     [label]="'Choose one option'"
     [control]="selectedRadioItem"
+    [errorMessages]="{ required: 'Select one option please!' }"
   ></lib-radio-group>
   Radio Selected Item : {{ selectedRadioItem.value }}
   <lib-select
@@ -29,16 +31,17 @@
     [options]="fruitsArr"
     [control]="favouriteFruit"
     [searchEnabled]="false"
+    [errorMessages]="{ required: 'Select one option please!' }"
   ></lib-select>
   favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
     [name]="'confirmation'"
     [label]="'Are you sure about that?'"
     [control]="confirmationState"
-    [className]="'loh'"
+    [errorMessages]="{ requiredTrue: 'Must be checked!' }"
   ></lib-checkbox>
   {{ confirmationState.value }}
-  <lib-checkbox
+  <!-- <lib-checkbox
     [label]="checkboxLabel2"
     [control]="checkboxState2"
   ></lib-checkbox>
@@ -47,7 +50,7 @@
     [label]="checkboxLabel3"
     [control]="checkboxState3"
   ></lib-checkbox>
-  {{ checkboxState3.value }}
+  {{ checkboxState3.value }} -->
   <lib-button
     [btnLabel]="'Test Button'"
     [btnType]="'wide stroke'"

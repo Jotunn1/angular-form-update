@@ -12,6 +12,11 @@ export class AppComponent {
   }
   inputControl: FormControl = new FormControl('');
   testBtnCallback(e: Event) {
+    for (const [key, value] of Object.entries(this)) {
+      if (value instanceof FormControl) {
+        value.setErrors({ 'required': true, 'requiredTrue': true })
+      }
+    }
     console.log(this)
   }
 

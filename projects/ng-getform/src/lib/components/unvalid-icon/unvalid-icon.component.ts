@@ -11,6 +11,5 @@ export class UnvalidIconComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.errors)
-    console.log(this.errorMessages)
   }
 }
