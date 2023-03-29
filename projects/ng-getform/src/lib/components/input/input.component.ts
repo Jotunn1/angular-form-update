@@ -18,7 +18,6 @@ export class InputComponent implements OnInit {
 
   @HostBinding('attr.class') @Input() className?: string = '';
 
-
   constructor() { }
 
   ngOnInit(): void { }

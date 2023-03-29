@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TooltipModule } from '../tooltip/tooltip.module';
 import { CheckboxComponent } from './checkbox.component';
+import { UnvalidIcon } from '../unvalid-icon/unvalid-icon.module';
 
 @NgModule({
     declarations: [
-        CheckboxComponent
+        CheckboxComponent,
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TooltipModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, UnvalidIcon],
     exports: [CheckboxComponent],
 })
 export class Checkbox { }

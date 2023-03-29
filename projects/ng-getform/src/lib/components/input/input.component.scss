@@ -100,13 +100,10 @@
       resize: none;
     }
 
-    .dangerIconWrapper {
-      width: 24px;
-      height: 24px;
+    lib-unvalid-icon {
       position: absolute;
       right: 16px;
       top: 14px;
-      cursor: pointer;
     }
   }
 }

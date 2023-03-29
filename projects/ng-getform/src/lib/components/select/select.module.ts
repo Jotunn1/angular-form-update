@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './select.component';
-import { TooltipModule } from '../tooltip/tooltip.module';
+import { UnvalidIcon } from '../unvalid-icon/unvalid-icon.module';
+
 
 @NgModule({
     declarations: [
         SelectComponent
     ],
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, TooltipModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, UnvalidIcon],
     exports: [SelectComponent],
 })
 export class Select { }
