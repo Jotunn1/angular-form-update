@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Checkbox, NgGetForm, Select, RadioGroup } from 'ng-getform';
+import { Checkbox, NgGetForm, Select, RadioGroup, Input } from 'ng-getform';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, FormsModule, NgGetForm, Checkbox, Select, RadioGroup],
+  imports: [BrowserModule, FormsModule, NgGetForm, Checkbox, Select, RadioGroup, Input],
   providers: [],
   bootstrap: [AppComponent],
 })

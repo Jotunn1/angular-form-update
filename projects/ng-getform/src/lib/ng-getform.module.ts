@@ -5,19 +5,28 @@ import { Select } from './components/select/select.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgGetformComponent } from './ng-getform.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
-import { InputComponent } from './components/input/input.component';
 import { TooltipModule } from './components/tooltip/tooltip.module';
 import { RadioGroup } from './components/radio-group/radio-group.module';
 import { Button } from './components/button/button.module';
 import { UnvalidIcon } from './components/unvalid-icon/unvalid-icon.module';
+import { Input } from './components/input/input.module';
 
 @NgModule({
   declarations: [
     NgGetformComponent,
-    TooltipComponent,
-    InputComponent,
+    TooltipComponent
   ],
-  imports: [CommonModule, TooltipModule, FormsModule, ReactiveFormsModule, Checkbox, Select, RadioGroup, Button, UnvalidIcon],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    Checkbox,
+    Select,
+    RadioGroup,
+    Button,
+    Input,
+    TooltipModule,
+    UnvalidIcon],
   exports: [NgGetformComponent],
 })
 export class NgGetForm { }

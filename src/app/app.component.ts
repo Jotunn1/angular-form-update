@@ -10,6 +10,7 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
+  inputControl: FormControl = new FormControl('')
 
   confirmationState = new FormControl(false);
   checkboxLabel2 = 'checkbox 2';
