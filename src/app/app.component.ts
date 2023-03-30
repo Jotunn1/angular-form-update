@@ -10,32 +10,28 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
-  inputControl: FormControl = new FormControl(null, [Validators.required, Validators.minLength(10), Validators.pattern('[a-zA-Z]+')]);
   validate: boolean = false;
   validateInputs() {
     this.validate = !this.validate;
-    // for (const [key, value] of Object.entries(this)) {
-    //   if (value instanceof FormControl) {
-    //     value.setErrors({ 'required': true, 'requiredTrue': true })
-    //   }
-    // }
   }
-
+  inputControl: FormControl = new FormControl(null,
+    [Validators.required,
+    Validators.minLength(2),
+    Validators.pattern('[a-zA-Z]+')]);
+  favouriteFruit: FormControl = new FormControl(null, [Validators.required]);
+  selectedRadioItem: FormControl = new FormControl(null, [Validators.required]);
   confirmationState = new FormControl(false, [Validators.requiredTrue]);
-  checkboxLabel2 = 'checkbox 2';
   checkboxState2 = new FormControl(true);
-  checkboxLabel3 = 'checkbox 3';
   checkboxState3 = new FormControl(false);
 
+  checkboxLabel3 = 'checkbox 3';
+  checkboxLabel2 = 'checkbox 2';
   fruitsArr: string[] = ['Banana',
     'Mango',
     'Pear',
     'Apple',
     'Orange'
   ];
-  favouriteFruit: FormControl = new FormControl(null, [Validators.required]);
-
-  selectedRadioItem: FormControl = new FormControl(null, [Validators.required]);
   radioButtonsArray: { name: string, value: string }[] =
     [{ name: 'radio 1', value: 'radio-1' },
     { name: 'radio 2', value: 'radio-2' },

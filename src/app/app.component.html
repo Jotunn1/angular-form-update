@@ -29,7 +29,7 @@
     [label]="'Choose one option'"
     [control]="selectedRadioItem"
     [validate]="validate"
-    [errorMessages]="{ required: 'Select one option' }"
+    [errorMessages]="{ required: 'Please select' }"
   ></lib-radio-group>
   Radio Selected Item : {{ selectedRadioItem.value }}
   <lib-select
@@ -38,7 +38,7 @@
     [control]="favouriteFruit"
     [searchEnabled]="false"
     [validate]="validate"
-    [errorMessages]="{ required: 'maan, please' }"
+    [errorMessages]="{ required: 'Select one fruit!' }"
   ></lib-select>
   favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
@@ -46,7 +46,7 @@
     [label]="'Are you sure about that?'"
     [control]="confirmationState"
     [validate]="validate"
-    [errorMessages]="{ requiredTrue: 'Must be checked' }"
+    [errorMessages]="{ required: 'Must be checked' }"
   ></lib-checkbox>
   {{ confirmationState.value }}
   <!-- <lib-checkbox
@@ -60,7 +60,7 @@
   ></lib-checkbox>
   {{ checkboxState3.value }} -->
   <lib-button
-    [btnLabel]="'Test Button'"
+    [btnLabel]="'Validate inputs'"
     [btnType]="'wide stroke'"
     (click)="validateInputs()"
   ></lib-button>

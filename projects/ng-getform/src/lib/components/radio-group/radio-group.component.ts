@@ -26,16 +26,17 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @HostBinding('attr.class') @Input() className?: string = '';
 
   innerValue!: string | number;
-  writeValue(value: string | number) {
-    if (value !== this.innerValue) {
-      this.innerValue = value;
-    }
-  }
 
   constructor() { }
 
   ngOnInit() {
     this.innerValue = this.control.value;
+  }
+
+  writeValue(value: string | number) {
+    if (value !== this.innerValue) {
+      this.innerValue = value;
+    }
   }
 
   onChange: any = () => { };

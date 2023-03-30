@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectComponent implements OnInit {
   @Input() question!: string;
-  @Input() selectTitle?: string;
+  @Input() selectTitle!: string | number;
   @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();
@@ -25,15 +25,6 @@ export class SelectComponent implements OnInit {
     if (!event.classList.contains('select-wrapper')) this.isActive = false;
   }
 
-  changeValue(value: any) {
-    this.selectTitle = value;
-    this.control?.setValue(value)
-  }
-
-  toggleDropdown() {
-    this.isActive = !this.isActive;
-  }
-
   constructor() { }
 
   ngOnInit(): void {
@@ -48,5 +39,14 @@ export class SelectComponent implements OnInit {
 
   searchClickHandle(event: Event) {
     event?.stopPropagation()
+  }
+
+  changeValue(value: string | number) {
+    this.selectTitle = value;
+    this.control?.setValue(value)
+  }
+
+  toggleDropdown() {
+    this.isActive = !this.isActive;
   }
 }

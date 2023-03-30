@@ -19,13 +19,22 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
-  @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
   @HostBinding('attr.class') @Input() className?: string = '';
 
   id: string = ''
   isChecked!: boolean;
+
+  constructor() {
+    this.id = `checkbox-${integer}`
+    integer++
+  }
+
+  ngOnInit() {
+    this.isChecked = this.control?.value;
+  }
+
   writeValue(value: boolean) {
     if (value !== this.isChecked) {
       this.isChecked = value;
@@ -41,15 +50,6 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   registerOnTouched(fn: Function): void {
     this.onTouch = fn;
-  }
-
-  constructor() {
-    this.id = `checkbox-${integer}`
-    integer++
-  }
-
-  ngOnInit() {
-    this.isChecked = this.control?.value;
   }
 
   toggleValue(e: boolean) {
