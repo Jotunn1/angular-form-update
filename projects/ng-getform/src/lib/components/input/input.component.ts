@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, HostBinding, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validator } from '@angular/forms';
 
 @Component({
   selector: 'lib-input',
@@ -15,15 +15,22 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() multiRows = false;
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
+  @Input() validator?: Validator;
 
   @HostBinding('attr.class') @Input() className?: string = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.control, 'input')
+    if (this.validator) {
+      // this.control.addValidators()
+    }
+    // console.log(this.control, 'input')
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.control.errors, ' errors')
+    // if (this.validate) {
+    //   this.control.setErrors()
+    // }
+    // console.log(this.control.errors, ' errors')
   }
 }

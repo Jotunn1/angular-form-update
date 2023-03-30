@@ -1,7 +1,7 @@
 export type TValidationItem = {
-    errorMessage: string;
     type: string;
-    value: string | number | boolean;
+    errorMessage: string;
+    value?: string | number | boolean;
 };
 
 export type TextInputProps = {

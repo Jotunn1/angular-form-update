@@ -1,4 +1,4 @@
-import { Component, HostListener, Input,HostBinding } from '@angular/core';
+import { Component, HostListener, Input, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
 import { getErrorMessages } from './helpers';
@@ -15,7 +15,7 @@ export class NgGetformComponent {
   @Input() successCallback?: () => void;
 
   @HostBinding('attr.class') @Input() className?: string = '';
-  
+
   isFormSubmitted = false;
   isLoading = false;
 
@@ -25,60 +25,9 @@ export class NgGetformComponent {
 
   ngOnInit() {
     this.fields.forEach((field: any) => {
-      if (field.validations)
-        this.errorMessages[field.name] = {
-          ...getErrorMessages(field.validations),
-        };
       this.form.addControl(
         field.name,
-        new FormControl(
-          null,
-          !field.validations
-            ? []
-            : field.validations.reduce((acc: any, current: { type: any; value: any; }) => {
-              switch (current.type) {
-                case 'required':
-                  return [...acc, Validators.required];
-
-                case 'minLength':
-                  return [
-                    ...acc,
-                    Validators.minLength(Number(current.value)) || 2,
-                  ];
-
-                case 'maxLength':
-                  return [
-                    ...acc,
-                    Validators.maxLength(Number(current.value) || 10),
-                  ];
-
-                case 'max':
-                  return [
-                    ...acc,
-                    Validators.max(Number(current.value) || 100),
-                  ];
-
-                case 'min':
-                  return [...acc, Validators.min(Number(current.value) || 0)];
-
-                case 'email':
-                  return [...acc, Validators.email];
-
-                case 'pattern':
-                  return [
-                    ...acc,
-                    Validators.pattern(
-                      String(current.value) || '[a-zA-Z" "]+'
-                    ),
-                  ];
-                case 'requiredTrue':
-                  return [...acc, Validators.requiredTrue]
-
-                default:
-                  return acc;
-              }
-            }, [])
-        )
+        new FormControl(null)
       );
     });
   }

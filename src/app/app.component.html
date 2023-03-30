@@ -39,8 +39,7 @@
     [label]="'Are you sure about that?'"
     [control]="confirmationState"
     [validate]="validate"
-    [validation]="{ requiredTrue: true }"
-    [errorMessages]="{ requiredTrue: 'Must be checked!' }"
+    [validation]="[{ type: 'requiredTrue', errorMessage: 'Must be true' }]"
   ></lib-checkbox>
   {{ confirmationState.value }}
   <!-- <lib-checkbox

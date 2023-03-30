@@ -10,6 +10,7 @@ export class UnvalidIconComponent implements OnInit {
   @Input() errors!: any;
 
   ngOnInit() {
-    console.log(this.errors)
+    console.log(this.errors, 'errors inside')
+    console.log(this.errorMessages, 'error message')
   }
 }

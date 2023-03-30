@@ -13,13 +13,12 @@ export class AppComponent {
   inputControl: FormControl = new FormControl('');
   validate: boolean = false;
   validateInputs(e: Event) {
-    this.validate = true;
+    this.validate = !this.validate;
     // for (const [key, value] of Object.entries(this)) {
     //   if (value instanceof FormControl) {
     //     value.setErrors({ 'required': true, 'requiredTrue': true })
     //   }
     // }
-    console.log(this)
   }
 
   confirmationState = new FormControl(false);
@@ -141,7 +140,6 @@ export class AppComponent {
       validations: [
         {
           type: 'required',
-          value: true,
           errorMessage: 'Selection required',
         },
       ],
@@ -150,10 +148,9 @@ export class AppComponent {
       type: 'checkbox',
       label: 'Are you sure about that?',
       name: 'confirmation',
-      validations: [
+      validation: [
         {
           type: 'requiredTrue',
-          value: true,
           errorMessage: 'Confirmation required',
         },
       ],
