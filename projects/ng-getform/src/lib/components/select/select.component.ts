@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, HostListener,HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostListener, HostBinding } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,8 @@ export class SelectComponent implements OnInit {
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
+  @Input() validate: boolean = false;
+
   isActive: boolean = false;
   searchString = new FormControl('');
   filteredOptions: string[] = []

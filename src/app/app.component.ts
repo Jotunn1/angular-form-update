@@ -11,12 +11,14 @@ export class AppComponent {
     console.log('hello from callback');
   }
   inputControl: FormControl = new FormControl('');
-  testBtnCallback(e: Event) {
-    for (const [key, value] of Object.entries(this)) {
-      if (value instanceof FormControl) {
-        value.setErrors({ 'required': true, 'requiredTrue': true })
-      }
-    }
+  validate: boolean = false;
+  validateInputs(e: Event) {
+    this.validate = true;
+    // for (const [key, value] of Object.entries(this)) {
+    //   if (value instanceof FormControl) {
+    //     value.setErrors({ 'required': true, 'requiredTrue': true })
+    //   }
+    // }
     console.log(this)
   }
 

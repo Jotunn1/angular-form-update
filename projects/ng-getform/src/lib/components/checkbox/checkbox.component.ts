@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
+import { Component, OnInit, Input, forwardRef, HostBinding, OnChanges } from "@angular/core";
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 let integer: number = 1;
 
@@ -15,12 +15,14 @@ let integer: number = 1;
   ]
 })
 
-export class CheckboxComponent implements OnInit, ControlValueAccessor {
+export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccessor {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
+  @Input() validation?: any;
   @Input() errorMessages: any;
+  @Input() validate: boolean = false;
   @HostBinding('attr.class') @Input() className?: string = '';
 
   id: string = ''
@@ -49,7 +51,14 @@ export class CheckboxComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     this.isChecked = this.control?.value;
-    console.log(this.control, 'checkbox')
+    // console.log(this.control, 'checkbox')
+  }
+
+  ngOnChanges() {
+    // console.log(this.validation)
+    if (this.validate) {
+      this.control.setErrors(this.validation)
+    }
   }
 
   change(e: boolean) {

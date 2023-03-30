@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <h3>Inside ng-getform</h3>
   <lib-ng-getform
     [targetUrl]="'https://getform.io/f/9d2f3436-7fc1-461c-a6a8-053f371b7347'"
@@ -6,7 +6,7 @@
     [btnLabel]="'Send form data'"
     [successCallback]="callback"
   ></lib-ng-getform>
-</div> -->
+</div>
 
 <div>
   <h3>Separate components</h3>
@@ -38,6 +38,8 @@
     [name]="'confirmation'"
     [label]="'Are you sure about that?'"
     [control]="confirmationState"
+    [validate]="validate"
+    [validation]="{ requiredTrue: true }"
     [errorMessages]="{ requiredTrue: 'Must be checked!' }"
   ></lib-checkbox>
   {{ confirmationState.value }}
@@ -54,6 +56,6 @@
   <lib-button
     [btnLabel]="'Test Button'"
     [btnType]="'wide stroke'"
-    (click)="testBtnCallback($event)"
+    (click)="validateInputs($event)"
   ></lib-button>
 </div>

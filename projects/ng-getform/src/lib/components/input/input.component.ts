@@ -15,6 +15,7 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() isSubmitted = false;
   @Input() multiRows = false;
   @Input() errorMessages: any;
+  @Input() validate: boolean = false;
 
   @HostBinding('attr.class') @Input() className?: string = '';
 

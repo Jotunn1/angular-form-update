@@ -22,6 +22,7 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
+  @Input() validate: boolean = false;
 
   @HostBinding('attr.class') @Input() className?: string = '';
 
