@@ -10,13 +10,13 @@ export type TextInputProps = {
     isMultiLine?: boolean;
     name: string;
     label?: string;
-    validations?: TValidationItem[];
+    validation?: TValidationItem[];
 };
 export type CheckboxProps = {
     type: string,
     name: string,
     label: string,
-    validations?: TValidationItem[];
+    validation?: TValidationItem[];
 }
 
 export type SelectProps = {
@@ -26,7 +26,7 @@ export type SelectProps = {
     question?: string,
     selectTitle?: string,
     searchEnabled?: boolean,
-    validations?: TValidationItem[];
+    validation?: TValidationItem[];
 }
 
 export type RadioButtonItem = {
@@ -40,7 +40,7 @@ export type RadioGroupProps = {
     options: RadioButtonItem[],
     label?: string,
     orientation?: string,
-    validations?: TValidationItem[];
+    validation?: TValidationItem[];
 }
 
 export type FileInputProps = {

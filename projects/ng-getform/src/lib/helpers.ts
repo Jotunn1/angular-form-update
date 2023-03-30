@@ -1,9 +1,9 @@
 import { FormControl, Validators } from "@angular/forms";
 import { TValidationItem } from "./types";
 
-export const getErrorMessages = (validations: TValidationItem[]) => {
+export const getErrorMessages = (validation: TValidationItem[]) => {
   const res: any = {};
-  validations.forEach((item) => {
+  validation.forEach((item) => {
     if (item.type === 'required' || item.type === 'requiredTrue') res.required = item.errorMessage;
     if (item.type === 'minLength') res.minLength = item.errorMessage;
     if (item.type === 'min') res.min = item.errorMessage;
@@ -15,23 +15,51 @@ export const getErrorMessages = (validations: TValidationItem[]) => {
   return res;
 };
 
-export const addValidatorToControl = (validations: TValidationItem[], formControl: FormControl) => {
-  validations.forEach((current: TValidationItem) => {
-    if (current.type === 'requiredTrue')
-      formControl.setValidators(Validators.requiredTrue);
-    else if (current.type === 'required')
-      formControl.setValidators(Validators.required);
-    else if (current.type === 'minLength')
-      formControl.setValidators(Validators.minLength(Number(current.value)) || 2);
-    else if (current.type === 'maxLength')
-      formControl.setValidators(Validators.maxLength(Number(current.value) || 10));
-    else if (current.type === 'max')
-      formControl.setValidators(Validators.max(Number(current.value) || 100));
-    else if (current.type === 'min')
-      formControl.setValidators(Validators.min(Number(current.value) || 0));
-    else if (current.type === 'email')
-      formControl.setValidators(Validators.email);
-    else if (current.type === 'pattern')
-      formControl.setValidators(Validators.pattern(String(current.value) || '[a-zA-Z" "]+'));
-  })
+export const addValidators = (validation: TValidationItem[]) => {
+
+  const result = validation.reduce((acc: any, current: TValidationItem) => {
+    switch (current.type) {
+      case 'requiredTrue':
+        return [...acc, Validators.requiredTrue]
+
+      case 'required':
+        return [...acc, Validators.required];
+
+      case 'minLength':
+        return [
+          ...acc,
+          Validators.minLength(Number(current.value)) || 2,
+        ];
+
+      case 'maxLength':
+        return [
+          ...acc,
+          Validators.maxLength(Number(current.value) || 10),
+        ];
+
+      case 'max':
+        return [
+          ...acc,
+          Validators.max(Number(current.value) || 100),
+        ];
+
+      case 'min':
+        return [...acc, Validators.min(Number(current.value) || 0)];
+
+      case 'email':
+        return [...acc, Validators.email];
+
+      case 'pattern':
+        return [
+          ...acc,
+          Validators.pattern(
+            String(current.value) || '[a-zA-Z" "]+'
+          ),
+        ];
+
+      default:
+        return acc;
+    }
+  }, [])
+  return result
 }

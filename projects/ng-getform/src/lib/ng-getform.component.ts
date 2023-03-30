@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, HostBinding } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { TooltipPosition } from './components/tooltip/tooltip.enums';
-import { getErrorMessages } from './helpers';
+import { addValidators, getErrorMessages } from './helpers';
 
 @Component({
   selector: 'lib-ng-getform',
@@ -25,11 +25,15 @@ export class NgGetformComponent {
 
   ngOnInit() {
     this.fields.forEach((field: any) => {
-      this.form.addControl(
-        field.name,
-        new FormControl(null)
-      );
-    });
+      if (field.validation) {
+        this.errorMessages[field.name] = {
+          ...getErrorMessages(field.validation),
+        };
+      }
+      this.form.addControl(field.name, new FormControl(null, !field.validation
+        ? []
+        : addValidators(field.validation)))
+    })
   }
 
   constructor() { }

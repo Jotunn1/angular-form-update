@@ -15,7 +15,12 @@
     [control]="inputControl"
     [inputId]="'test'"
     [placeholder]="'bi-bo-boop'"
-    [errorMessages]="{ required: 'Hello there' }"
+    [validate]="validate"
+    [errorMessages]="{
+      required: 'Required field',
+      minLength: 'At least 2 chracters',
+      pattern: 'Only letters'
+    }"
   ></lib-input>
   inputControl : {{ inputControl.value }}
   <lib-radio-group
@@ -23,7 +28,8 @@
     [orientation]="'horizontal'"
     [label]="'Choose one option'"
     [control]="selectedRadioItem"
-    [errorMessages]="{ required: 'Select one option please!' }"
+    [validate]="validate"
+    [errorMessages]="{ required: 'Select one option' }"
   ></lib-radio-group>
   Radio Selected Item : {{ selectedRadioItem.value }}
   <lib-select
@@ -31,7 +37,8 @@
     [options]="fruitsArr"
     [control]="favouriteFruit"
     [searchEnabled]="false"
-    [errorMessages]="{ required: 'Select one option please!' }"
+    [validate]="validate"
+    [errorMessages]="{ required: 'maan, please' }"
   ></lib-select>
   favouriteFruit : {{ favouriteFruit.value }}
   <lib-checkbox
@@ -39,7 +46,7 @@
     [label]="'Are you sure about that?'"
     [control]="confirmationState"
     [validate]="validate"
-    [validation]="[{ type: 'requiredTrue', errorMessage: 'Must be true' }]"
+    [errorMessages]="{ requiredTrue: 'Must be checked' }"
   ></lib-checkbox>
   {{ confirmationState.value }}
   <!-- <lib-checkbox
@@ -55,6 +62,6 @@
   <lib-button
     [btnLabel]="'Test Button'"
     [btnType]="'wide stroke'"
-    (click)="validateInputs($event)"
+    (click)="validateInputs()"
   ></lib-button>
 </div>

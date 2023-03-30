@@ -148,7 +148,7 @@ fruitsArr: string[] = ['Banana',
     label?: string
     placeholder?: string (default equal 'label')
     isMultiLine?: boolean (if true, will be rendered '<textarea></textarea>', otherwise a '<input />')
-    validations?: {
+    validation?: {
         errorMessage: string
         type: string (allowed 'required' | 'email' | 'minLength' | 'maxLength' | 'min' | 'max' | 'pattern')
         value: string | number | boolean
@@ -167,7 +167,7 @@ fruitsArr: string[] = ['Banana',
     label?: string
     placeholder?: string (default equal 'label')
     isMultiLine?: boolean (if true, will be rendered '<textarea></textarea>', otherwise a '<input />')
-    validations?: {
+    validation?: {
         errorMessage: string
         type: string (allowed 'required' | 'email' | 'minLength' | 'maxLength' | 'min' | 'max' | 'pattern')
         value: string | number | boolean
@@ -180,7 +180,7 @@ fruitsArr: string[] = ['Banana',
       type: 'text',
       name: 'name',
       label: 'Your first name',
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -202,7 +202,7 @@ fruitsArr: string[] = ['Banana',
       type: 'checkbox',
       label: 'Are you sure about that?',
       name: 'confirmation',
-      validations: [
+      validation: [
         {
           type: 'requiredTrue',
           value: true,
@@ -220,7 +220,7 @@ fruitsArr: string[] = ['Banana',
       { name: 'tenis', value: 'tenis' },
       { name: 'basketball', value: 'basketball' },
       { name: 'formula 1', value: 'formula-1' }],
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -240,7 +240,7 @@ fruitsArr: string[] = ['Banana',
         'Lemon',
         'Watermelon'
       ],
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,

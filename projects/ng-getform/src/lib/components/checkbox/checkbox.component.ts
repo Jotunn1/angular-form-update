@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, forwardRef, HostBinding, OnChanges } from "@angular/core";
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from "@angular/forms";
-import { addValidatorToControl, getErrorMessages } from "../../helpers";
-import { TValidationItem } from "../../types";
+import { Component, OnInit, Input, forwardRef, HostBinding } from "@angular/core";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from "@angular/forms";
 let integer: number = 1;
 
 @Component({
@@ -17,12 +15,11 @@ let integer: number = 1;
   ]
 })
 
-export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccessor {
+export class CheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() name: string = '';
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
   @Input() isSubmitted: boolean = false;
-  @Input() validation?: TValidationItem[];
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
   @HostBinding('attr.class') @Input() className?: string = '';
@@ -53,23 +50,10 @@ export class CheckboxComponent implements OnInit, OnChanges, ControlValueAccesso
 
   ngOnInit() {
     this.isChecked = this.control?.value;
-    // console.log(this.validation)
-    if (this.validation) {
-      // this.control.setValidators(Validators.required)
-      addValidatorToControl(this.validation, this.control)
-      this.errorMessages = getErrorMessages(this.validation)
-    }
-    // console.log(this.control.errors, 'errors')
   }
 
-  ngOnChanges() {
-    // if (this.validate) {
-    //   this.control.setErrors({ requiredTrue: true })
-    // }
-  }
-
-  change() {
-    this.isChecked = !this.isChecked;
-    this.onChange(this.isChecked);
+  toggleValue(e: boolean) {
+    this.isChecked = e;
+    this.onChange(e);
   }
 }

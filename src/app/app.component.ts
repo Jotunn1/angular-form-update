@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,9 @@ export class AppComponent {
   callback() {
     console.log('hello from callback');
   }
-  inputControl: FormControl = new FormControl('');
+  inputControl: FormControl = new FormControl(null, [Validators.required, Validators.minLength(10), Validators.pattern('[a-zA-Z]+')]);
   validate: boolean = false;
-  validateInputs(e: Event) {
+  validateInputs() {
     this.validate = !this.validate;
     // for (const [key, value] of Object.entries(this)) {
     //   if (value instanceof FormControl) {
@@ -21,7 +21,7 @@ export class AppComponent {
     // }
   }
 
-  confirmationState = new FormControl(false);
+  confirmationState = new FormControl(false, [Validators.requiredTrue]);
   checkboxLabel2 = 'checkbox 2';
   checkboxState2 = new FormControl(true);
   checkboxLabel3 = 'checkbox 3';
@@ -33,9 +33,9 @@ export class AppComponent {
     'Apple',
     'Orange'
   ];
-  favouriteFruit: FormControl = new FormControl();
+  favouriteFruit: FormControl = new FormControl(null, [Validators.required]);
 
-  selectedRadioItem: FormControl = new FormControl();
+  selectedRadioItem: FormControl = new FormControl(null, [Validators.required]);
   radioButtonsArray: { name: string, value: string }[] =
     [{ name: 'radio 1', value: 'radio-1' },
     { name: 'radio 2', value: 'radio-2' },
@@ -47,7 +47,7 @@ export class AppComponent {
       type: 'text',
       name: 'name',
       label: 'Your first name',
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -69,7 +69,7 @@ export class AppComponent {
       type: 'text',
       name: 'lastName',
       label: 'Your last name',
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -99,7 +99,7 @@ export class AppComponent {
       { name: 'non-binary', value: 'non-binary' },
       { name: 'pangender', value: 'pangender' },
       { name: 'genderqueer', value: 'genderqueer' },],
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -117,7 +117,7 @@ export class AppComponent {
       { name: 'tenis', value: 'tenis' },
       { name: 'basketball', value: 'basketball' },
       { name: 'formula 1', value: 'formula-1' }],
-      validations: [
+      validation: [
         {
           type: 'required',
           value: true,
@@ -137,7 +137,7 @@ export class AppComponent {
         'Lemon',
         'Watermelon'
       ],
-      validations: [
+      validation: [
         {
           type: 'required',
           errorMessage: 'Selection required',
