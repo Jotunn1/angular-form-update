@@ -12,7 +12,6 @@ export class SelectComponent implements OnInit {
   @Input() searchEnabled?: boolean = true;
   @Input() options: string[] = [];
   @Input() control: FormControl = new FormControl();
-  @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
 

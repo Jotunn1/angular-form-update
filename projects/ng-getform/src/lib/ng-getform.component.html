@@ -6,9 +6,9 @@
       [placeholder]="item.placeholder ? item.placeholder : item.label"
       [label]="item.label"
       [type]="item.type || 'text'"
-      [isSubmitted]="isFormSubmitted"
+      [validate]="isFormSubmitted"
       [multiRows]="item.isMultiLine || false"
-      [isSubmitted]="isFormSubmitted"
+      [validate]="isFormSubmitted"
       [control]="form.controls[item.name]"
       [errorMessages]="errorMessages[item.name]"
     ></lib-input>
@@ -17,7 +17,7 @@
       [name]="item.name"
       [label]="item.label"
       [control]="form.controls[item.name]"
-      [isSubmitted]="isFormSubmitted"
+      [validate]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"
     >
     </lib-checkbox>
@@ -28,7 +28,7 @@
       [items]="item.options"
       [orientation]="item.orientation"
       [control]="form.controls[item.name]"
-      [isSubmitted]="isFormSubmitted"
+      [validate]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"
     ></lib-radio-group>
     <lib-select
@@ -36,7 +36,7 @@
       [question]="item.question"
       [options]="item.options"
       [control]="form.controls[item.name]"
-      [isSubmitted]="isFormSubmitted"
+      [validate]="isFormSubmitted"
       [errorMessages]="errorMessages[item.name]"
     ></lib-select>
   </ng-container>

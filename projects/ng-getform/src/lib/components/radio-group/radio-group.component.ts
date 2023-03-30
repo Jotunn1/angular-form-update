@@ -20,7 +20,6 @@ export class RadioGroupComponent implements ControlValueAccessor, OnInit {
   @Input() items: { name: string, value: string }[] = [];
   @Input() orientation: string = 'vertical';
   @Input() control: FormControl = new FormControl();
-  @Input() isSubmitted: boolean = false;
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
 

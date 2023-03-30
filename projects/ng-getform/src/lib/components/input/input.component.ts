@@ -12,7 +12,6 @@ export class InputComponent implements OnInit, OnChanges {
   @Input() label?: string = '';
   @Input() placeholder?: string = '';
   @Input() type = 'text';
-  @Input() isSubmitted = false;
   @Input() multiRows = false;
   @Input() errorMessages: any;
   @Input() validate: boolean = false;
