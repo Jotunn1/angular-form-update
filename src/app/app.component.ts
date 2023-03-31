@@ -21,11 +21,7 @@ export class AppComponent {
   favouriteFruit: FormControl = new FormControl(null, [Validators.required]);
   selectedRadioItem: FormControl = new FormControl(null, [Validators.required]);
   confirmationState = new FormControl(false, [Validators.requiredTrue]);
-  checkboxState2 = new FormControl(true);
-  checkboxState3 = new FormControl(false);
-
-  checkboxLabel3 = 'checkbox 3';
-  checkboxLabel2 = 'checkbox 2';
+  
   fruitsArr: string[] = ['Banana',
     'Mango',
     'Pear',

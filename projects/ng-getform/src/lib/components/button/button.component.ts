@@ -6,7 +6,7 @@ import { Component, Input, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent implements OnInit {
-  @Input() btnLabel?: string = 'Send form';
+  @Input() btnLabel: string = '';
   @Input() btnType: string = 'filled';
   @Input() disabled?: boolean = false;
 

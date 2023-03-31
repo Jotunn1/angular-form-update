@@ -11,7 +11,7 @@ import { addValidators, getErrorMessages } from './helpers';
 export class NgGetformComponent {
   @Input() targetUrl: string = '';
   @Input() fields: any = [];
-  @Input() btnLabel?: string = '';
+  @Input() btnLabel: string = 'Send form';
   @Input() successCallback?: () => void;
 
   @HostBinding('attr.class') @Input() className?: string = '';
