@@ -71,12 +71,12 @@ in your .html file
 - required `inputId : string` unique Id for every input;
 - required `control : FormControl` variable to control input  value (new FormControl(yourValue : string)). Actually you can use all the methods that are avalilable with [FormControl](https://angular.io/api/forms/FormControl). Input validations implemented by native Angular [Validators](https://angular.io/api/forms/Validators);
 - optional `validate : boolean` variable that trigger validation, when equal to true you can see danger icon inside your component;
-- optional `type : string` inout type (default 'text');
+- optional `type : string` input type (default 'text');
 - optional `label : string` the label of an input;
 - optional `placeholder : string` input placeholder (by default equal to `label`);
 - optional `multiRows : boolean` if equal true, will be rendered '<textarea>', otherwise a '<input />';
 - optional `errorMessage : { errorType : string }` with this property you can bind tooltip message for component unvalid state;
-- optional `className : string` - class name for custom styling.
+- optional `className : string`  class name for custom styling.
 
 #### Example of usage
 
@@ -105,6 +105,7 @@ in your .ts file
     Validators.minLength(2),
     Validators.pattern('[a-zA-Z]+')]););
 ```
+Mostly common use case for `validate` property : you can create variable that would be equal to `false` by default, and when you need to validate your form or separate component you just toggle this varriable to `true`.
 
 ### Checkbox accepts parameters
 
